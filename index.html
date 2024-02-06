@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Historically Accurate Pong </title> 
+<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+<script>
+function start(){
+sjs.open();
+var menu_text = new sjs.Text("Start Screen",28,"blue");   
+menu_text.centerH();
+
+var game_text = new sjs.Text("Use the Arrow Keys to Control the Paddles.",28,"#ff0"); 
+game_text.centerH().offset(0, 30);
+
+var startBtn = new sjs.Button("Begin Game", function(){ 
+window.location = "./Pong.html";    
+});
+
+startBtn.center();
+
+var info_text = new sjs.Text("Created By...You Don't Need To Know My Name",20,"black");   
+
+info_text.bottom().centerH();  
+
+} //end start    
+
+</script>
+</head>
+<body onload="start()">
+<h1> Menu </h1> 
+
+<div id="target" style="margin:auto;background:grey;"></div>
+</body>
+</html>

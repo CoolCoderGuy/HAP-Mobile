@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Mission Failed </title> 
+<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+<script>
+function start(){
+sjs.open();  
+
+var gameover_text = new sjs.Text("Disappointing...",28,"red"); 
+var restartBtn = new sjs.Button("Restart", function(){ 
+window.location = "index.html";   
+});
+restartBtn.center();           
+
+} //end start  
+</script>
+</head>
+<body onload="start()">
+<h1> Game Over! </h1> 
+<div id="target" style="margin:auto;background:grey;"></div>
+</body>
+</html> 
