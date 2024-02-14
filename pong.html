@@ -30,8 +30,8 @@ background.setSize(sjs.getWidth(), sjs.getHeight());
   var score_txt = new sjs.Text("Current Score: 0", 21, "orange");   
   //Sounds
 var soundEffect = new Audio('pop.mp3');  
-var soundEffect = new Audio('TOOT.mp3'); 
-sjs.onHit("ball","paddle", function(ball,paddle){ 
+var soundEffect = new Audio('BONG.mp3'); 
+sjs.onHit("ball","paddle", function(ball,paddle){  
 score = score + 1; 
 score_txt.setText("Score: "+score); 
 
