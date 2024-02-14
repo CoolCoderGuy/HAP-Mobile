@@ -34,15 +34,23 @@ var soundEffect = new Audio('MUSIC.mp3');
 sjs.onHit("ball","paddle", function(ball,paddle){ 
 score = score + 1;
 score_txt.setText("Score: "+score); 
- 
-if(score == 10){
 
+  if(score == 10){
 ball.setSize(50,50);     
+}
 
+if(score == 15){
+ ball.pushUp(1);
+  ball.pushLeft(2);   
 }
 
 if(score == 25){
   ball.setSize(40,40);   
+}
+
+if(score == 35){
+ paddle.setSize(75,30); 
+paddle2.setSize(75,30);
 }
 
 if(score == 40){
@@ -53,7 +61,7 @@ if(score == 45){
   ball.setSize(10,10); 
 }
 if(score == 50){
-  window.location = "Winner.html";  
+  window.location = "Winner.html";   
 }
 soundEffect.play();
 sjs.bounceOff(ball,paddle);
