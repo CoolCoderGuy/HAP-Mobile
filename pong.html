@@ -6,6 +6,8 @@
 <script> 
 function start(){
   sjs.open(); 
+  var background = new sjs.Image("background.png");   
+background.setSize(sjs.getWidth(), sjs.getHeight());
   //ball
   var ball = new sjs.Image("PLANE.png");     
   ball.type = "ball";
@@ -78,7 +80,8 @@ window.location = "gameover.html";
 <body onload="start()"> 
 <h1>Historically Accurate Pong   
  </h1> 
-<div id="target" style="margin:auto;background:black;"></div> 
+<div id="target" style="margin:auto;background:black;
+  border-radius: 25px"></div>  
 </body> 
 </html> 
  
