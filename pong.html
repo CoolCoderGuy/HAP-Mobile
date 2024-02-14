@@ -6,8 +6,9 @@
 <script> 
 function start(){
   sjs.open(); 
-  var background = new sjs.Image("background.png");   
-background.setSize(sjs.getWidth(), sjs.getHeight());
+  
+var background = new sjs.Image("background.png");   
+background.setSize(sjs.getWidth(), sjs.getHeight()); 
   //ball
   var ball = new sjs.Image("PLANE.png");     
   ball.type = "ball";
@@ -27,8 +28,9 @@ background.setSize(sjs.getWidth(), sjs.getHeight());
   paddle2.center().bottom();
   var score = 0;  
   var score_txt = new sjs.Text("Current Score: 0", 21, "orange");   
-  //Sounds 
-var soundEffect = new Audio('MUSIC.mp3');
+  //Sounds
+var soundEffect = new Audio('Music/pop.mp3');  
+var soundEffect = new Audio('Music/MUSIC.mp3');
 sjs.onHit("ball","paddle", function(ball,paddle){ 
 score = score + 1;
 score_txt.setText("Score: "+score); 
@@ -69,7 +71,7 @@ window.location = "gameover.html";
     paddle.pushLeft();
     paddle2.pushLeft();
   }); 
-  sjs.keyDown(D_KEY, function(){  
+  sjs.keyDown(D_KEY, function(){ 
     paddle.pushRight();
     paddle2.pushRight();
   }); 
@@ -80,8 +82,7 @@ window.location = "gameover.html";
 <body onload="start()"> 
 <h1>Historically Accurate Pong   
  </h1> 
-<div id="target" style="margin:auto;background:black;
-border-radius: 50px></div>   
+<div id="target" style="margin:auto;background:black;"></div> 
 </body> 
 </html> 
  
