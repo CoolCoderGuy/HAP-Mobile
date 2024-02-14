@@ -49,8 +49,13 @@ if(score == 40){
   ball.setSize(25,25); 
 }
 
+}
+
+if(score == 45){
+  ball.setSize(10,10); 
+}
 if(score == 50){
-  window.location = "Winner.html"; 
+  window.location = "Winner.html";  
 }
 soundEffect.play();
 sjs.bounceOff(ball,paddle);
@@ -82,7 +87,7 @@ window.location = "gameover.html";
 <body onload="start()"> 
 <h1>Historically Accurate Pong   
  </h1> 
-<div id="target" style="margin:auto;background:black; 
+<div id="target" style="margin:auto;background:black;  
 border-radius: 50px;"></div>   
 </body> 
 </html> 
