@@ -32,7 +32,7 @@ background.setSize(sjs.getWidth(), sjs.getHeight());
 var soundEffect = new Audio('pop.mp3');  
 var soundEffect = new Audio('MUSIC.mp3');
 sjs.onHit("ball","paddle", function(ball,paddle){ 
-score = score + 1;
+score = score + 1; 
 score_txt.setText("Score: "+score); 
 
   if(score == 10){
@@ -49,10 +49,11 @@ if(score == 25){
 }
 
 if(score == 35){
- paddle.setSize(75,30); 
+ paddle.setSize(75,30);  
+}
+if(score == 35){
 paddle2.setSize(75,30);
 }
-
 if(score == 40){
   ball.setSize(25,25); 
 }
