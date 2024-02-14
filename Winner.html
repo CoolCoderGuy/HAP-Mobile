@@ -6,8 +6,9 @@
 <script>
 function start(){
 sjs.open();
-var gameover_text = new sjs.Text("Congratulations!!!",28,"blue"); 
-
+var background = new sjs.Image("BUSH.png");  
+background.setSize(sjs.getWidth(), sjs.getHeight());  
+var gameover_text = new sjs.Text("Congratulations!!!",28,"blue");  
 var restartBtn = new sjs.Button("New Game", function(){  
 window.location = "index.html";
 });
@@ -19,6 +20,7 @@ restartBtn.center();
 <body onload="start()">
 <h1>  Respect 🫡 </h1>  
 
-<div id="target" style="margin:auto;background:grey;"></div>
+<div id="target" style="margin:auto;background:grey;
+  border-radius: 35px"></div> 
 </body>
 </html>
