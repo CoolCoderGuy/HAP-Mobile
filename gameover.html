@@ -6,7 +6,26 @@
 <script>
 function start(){
 sjs.open();  
-var background = new sjs.Image("OOPS.png");  
+//Background Music
+var playM = new Audio('KABOOM.mp3'); 
+var toggle = true;
+var musicOn = false;
+sjs.keyDown(B_KEY, function(){  
+if(toggle == true){
+if(musicOn == false){
+playM.play();
+musicOn = true;
+} else {
+playM.pause();
+musicOn = false;
+}
+toggle = false;
+setTimeout(function(){  
+toggle = true;
+},1000);
+} //end if toggle statement
+}); //end keyDown function
+  var background = new sjs.Image("OOPS.png");  
 background.setSize(sjs.getWidth(), sjs.getHeight());
 var gameover_text = new sjs.Text("DDDisappointing...",28,"red"); 
 var restartBtn = new sjs.Button("Restart", function(){  
