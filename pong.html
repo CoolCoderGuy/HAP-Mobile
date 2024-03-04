@@ -1,47 +1,63 @@
-<!DOCTYPE html>
 <html>
-<head> 
-<title> Historically Accurate Pong </title> 
-<script src="https://simplycoding.org/files/simplyjs/simply.js"></script> 
+<head>
+<title> Custom Game </title> 
+<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script> 
 <script> 
 function start(){
   sjs.open(); 
-  
-var background = new sjs.Image("background.png");   
-background.setSize(sjs.getWidth(), sjs.getHeight());
-  //ball
-  var ball = new sjs.Image("PLANE.png");     
+  var background = new sjs.Image("Images/background.png");
+  background.setSize(sjs.getWidth(), sjs.getHeight());
+
+  var ball = new sjs.Image("Images/PLANE.png");
   ball.type = "ball";
   ball.setSize(55,55);
   ball.center();
-  ball.friction = 0; 
-  ball.bounce(); 
+  ball.friction = 0;
+  ball.bounce();
   ball.pushUp(3);
-  ball.pushLeft(4);   
-  var paddle = new sjs.Image("TOWERS.png");  
+  ball.pushLeft(4);
+
+  var paddle = new sjs.Image("Images/TOWERS.png");
   paddle.type = "paddle";
-  paddle.setSize(100,30); 
+  paddle.setSize(100,30);
   paddle.centerH();
-  var paddle2 = new sjs.Image("TOWERS.png"); 
+
+setInterval(function(){
+  console.log(ball.x + " , " + paddle.x);
+},0);
+
+ 
+
+  setInterval(function(){
+    if(ball.y > 75){
+      if(ball.x > paddle2.x){
+        paddle2.pushRight();
+      } else {
+        paddle2.pushLeft();
+      }
+    }
+  },50);
+
+  var paddle2 = new sjs.Image("Images/TOWERS.png");
   paddle2.type = "paddle";
   paddle2.setSize(100,30);
-  paddle2.center().bottom();
-  var score = 0;  
-  var score_txt = new sjs.Text("Current Score: 0", 21, "orange");   
-  //Sounds
-var soundEffect = new Audio('pop.mp3');  
-var soundEffect = new Audio('BONG.mp3'); 
+  paddle2.center().bottom(); 
+
+  var score = 0;
+  var score_txt = new sjs.Text("Score: 0", 21, "orange"); 
+
+  var soundEffect = new Audio('BONG.mp3'); 
 sjs.onHit("ball","paddle", function(ball,paddle){  
 score = score + 1; 
-score_txt.setText("Score: "+score); 
+score_txt.setText("Score: "+score);    
 
   if(score == 10){
 ball.setSize(50,50);     
 }
 
-if(score == 15){
+if(score == 20){
  ball.pushUp(1);
-  ball.pushLeft(2);   
+  ball.pushLeft(-1);   
 }
 
 if(score == 25){
@@ -51,7 +67,7 @@ if(score == 25){
 if(score == 35){
  paddle.setSize(75,30);  
 }
-if(score == 36){
+if(score == 38){
 paddle2.setSize(75,30); 
 }
 if(score == 40){
@@ -71,31 +87,43 @@ sjs.onHit("ball",["top_screen","bottom_screen"], function(){
 window.location = "gameover.html";
 }); 
   sjs.keyDown(LEFT_KEY, function(){
-    paddle.pushLeft();
-    paddle2.pushLeft();
+    paddle.pushLeft(-1);
   }); 
-  sjs.keyDown(RIGHT_KEY, function(){
-    paddle.pushRight();
-    paddle2.pushRight();
+  sjs.keyDown(RIGHT_KEY, function(){ 
+    paddle.pushRight(-1);
   }); 
-
+sjs.keyDown(DOWN_KEY, function(){ 
+ball.friction = -0.0001;
+  }); 
  sjs.keyDown(A_KEY, function(){
-    paddle.pushLeft();
-    paddle2.pushLeft();
+    paddle.pushLeft(1);
   }); 
-  sjs.keyDown(D_KEY, function(){ 
-    paddle.pushRight();
-    paddle2.pushRight();
+  sjs.keyDown(D_KEY, function(){  
+    paddle.pushRight(1);
   }); 
-
+sjs.keyDown(S_KEY, function(){ 
+    paddle.pushDown(0.1); 
+  }); 
+sjs.keyDown(W_KEY, function(){ 
+ var newball = new sjs.Image("Images/MOGUS.png"); 
+newball.type = "newball";
+newball.setSize(50,50);
+newball.center();
+newball.friction = 0;
+newball.bounce();
+newball.pushRight(5);
+newball.pushUp(7);    
+  }); 
 } //end start   
 </script> 
 </head> 
 <body onload="start()"> 
-<h1>Historically Accurate Pong   
+<h1> AI Historically Accurate Pong   
   For Educational Purposes Only
- </h1> 
-<div id="target" style="margin:auto;background:black;  
-border-radius: 50px;"></div>   
+ </h1>   
+<div id="target" style="margin:auto;background:grey;"></div> 
 </body> 
 </html> 
+
+
+  
