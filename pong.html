@@ -89,10 +89,10 @@ sjs.onHit("ball",["top_screen","bottom_screen"], function(){
 window.location = "gameover.html";
 }); 
   sjs.keyDown(LEFT_KEY, function(){
-    paddle.pushLeft(-1);
+    paddle.pushLeft(1);
   }); 
   sjs.keyDown(RIGHT_KEY, function(){ 
-    paddle.pushRight(-1);
+    paddle.pushRight(1);
   }); 
 sjs.keyDown(DOWN_KEY, function(){ 
 ball.friction = -0.0001;
@@ -104,7 +104,7 @@ ball.friction = -0.0001;
     paddle.pushRight(1);
   }); 
 sjs.keyDown(S_KEY, function(){ 
-    paddle.pushDown(0.1); 
+    paddle.pushDown(0.1);  
   }); 
 sjs.keyDown(W_KEY, function(){ 
  var newball = new sjs.Image("MOGUS.png"); 
