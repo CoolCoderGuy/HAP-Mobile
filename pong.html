@@ -5,10 +5,10 @@
 <script> 
 function start(){
   sjs.open(); 
-  var background = new sjs.Image("Images/background.png");
+  var background = new sjs.Image("background.png");
   background.setSize(sjs.getWidth(), sjs.getHeight());
 
-  var ball = new sjs.Image("Images/PLANE.png");
+  var ball = new sjs.Image("PLANE.png");
   ball.type = "ball";
   ball.setSize(55,55);
   ball.center();
@@ -17,7 +17,7 @@ function start(){
   ball.pushUp(3);
   ball.pushLeft(4);
 
-  var paddle = new sjs.Image("Images/TOWERS.png");
+  var paddle = new sjs.Image("TOWERS.png");
   paddle.type = "paddle";
   paddle.setSize(100,30);
   paddle.centerH();
@@ -38,7 +38,7 @@ setInterval(function(){
     }
   },50);
 
-  var paddle2 = new sjs.Image("Images/TOWERS.png");
+  var paddle2 = new sjs.Image("TOWERS.png");
   paddle2.type = "paddle";
   paddle2.setSize(100,30);
   paddle2.center().bottom(); 
@@ -105,7 +105,7 @@ sjs.keyDown(S_KEY, function(){
     paddle.pushDown(0.1); 
   }); 
 sjs.keyDown(W_KEY, function(){ 
- var newball = new sjs.Image("Images/MOGUS.png"); 
+ var newball = new sjs.Image("MOGUS.png"); 
 newball.type = "newball";
 newball.setSize(50,50);
 newball.center();
