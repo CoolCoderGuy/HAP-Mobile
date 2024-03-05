@@ -43,14 +43,14 @@ setInterval(function(){
  
 
   setInterval(function(){
-    if(ball.y > 75){
+    if(ball.y > 100){
       if(ball.x > paddle2.x){
         paddle2.pushRight();
       } else {
         paddle2.pushLeft();
       }
     }
-  },50);
+  },25);
 
   var paddle2 = new sjs.Image("TOWERS.png");
   paddle2.type = "paddle";
@@ -58,7 +58,7 @@ setInterval(function(){
   paddle2.center().bottom(); 
 
   var score = 0;
-  var score_txt = new sjs.Text("Score: 0", 21, "orange"); 
+  var score_txt = new sjs.Text("Score: 0", 30, "red"); 
 
   var soundEffect = new Audio('BONG.mp3'); 
 sjs.onHit("ball","paddle", function(ball,paddle){  
