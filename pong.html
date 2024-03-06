@@ -148,6 +148,35 @@ newball.pushUp(7);
 
 } //end start   
 </script> 
+
+<button onclick="myFunction()">Left Shoot</button>
+
+<script>
+function myFunction() {
+
+var paddle = new sjs.Image("Images/TOWERS.png"); 
+  paddle.type = "paddle";
+  paddle.setSize(100,30);
+  paddle.centerH();
+
+ paddle.pushLeft (7);
+}
+</script>
+
+<button onclick="myFunction2()">Right Shoot</button>
+
+<script>
+function myFunction2() {
+
+var paddle = new sjs.Image("Images/TOWERS.png"); 
+  paddle.type = "paddle";
+  paddle.setSize(100,30);
+  paddle.centerH();
+
+ paddle.pushRight (7);
+}
+</script>
+
 </head> 
 <body onload="start()"> 
 <div>
