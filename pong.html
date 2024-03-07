@@ -148,35 +148,6 @@ newball.pushUp(7);
 
 } //end start   
 </script> 
-
-<button onclick="myFunction()">Left Shoot</button>
-
-<script>
-function myFunction() {
-
-var paddle = new sjs.Image("Images/TOWERS.png"); 
-  paddle.type = "paddle";
-  paddle.setSize(100,30);
-  paddle.centerH();
-
- paddle.pushLeft (7);
-}
-</script>
-
-<button onclick="myFunction2()">Right Shoot</button>
-
-<script>
-function myFunction2() {
-
-var paddle = new sjs.Image("Images/TOWERS.png"); 
-  paddle.type = "paddle";
-  paddle.setSize(100,30);
-  paddle.centerH();
-
- paddle.pushRight (7);
-}
-</script>
-
 </head> 
 <body onload="start()"> 
 <div>
@@ -190,7 +161,36 @@ var paddle = new sjs.Image("Images/TOWERS.png");
 <iframe width="300" height="300" src="https://www.youtube.com/embed/sJNK4VKeoBM?si=xMMZTi6yz2p3RfhO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <div style="width: 50%; float: right;"> <iframe width="560" height="315" src="https://www.youtube.com/embed/7ghSziUQnhs?si=PG8V0aUh8ZojTpoz&amp;start=18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
 <iframe width="500" height="300" src="https://www.youtube.com/embed/tFudUMcNSOU?si=Awpzi_PX8aJ_ylmB" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<div id="target" style="margin:auto;background:grey; border-radius: 25px img 
+
+  <button onclick="myFunction()">Left Shoot</button>
+
+<script>
+function myFunction() {
+
+var paddle = new sjs.Image("TOWERS.png"); 
+  paddle.type = "paddle";
+  paddle.setSize(100,30);
+  paddle.centerH();
+
+ paddle.pushLeft (10);
+}
+</script>
+
+<button onclick="myFunction2()">Right Shoot</button>
+
+<script>
+function myFunction2() {
+
+var paddle = new sjs.Image("TOWERS.png"); 
+  paddle.type = "paddle";
+  paddle.setSize(100,30);
+  paddle.centerH();
+
+ paddle.pushRight (10);
+}
+</script>
+  
+  <div id="target" style="margin:auto;background:grey; border-radius: 25px img 
   border: 5px solid #555;
 ;"></div> 
 </body> 
