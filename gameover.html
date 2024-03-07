@@ -19,7 +19,10 @@
 <script>
 function start(){
 sjs.open();  
-//Background Music
+
+  <img src="ANGLE.png">  
+ 
+    //Background Music
 var playM = new Audio('KABOOM.mp3'); 
 var toggle = true;
 var musicOn = false;
@@ -40,7 +43,7 @@ toggle = true;
 }); //end keyDown function
   var background = new sjs.Image("OOPS.png");  
 background.setSize(sjs.getWidth(), sjs.getHeight());
-var gameover_text = new sjs.Text("<img src="ANGLE.png" alt="Trulli" width="500" height="333">",28,"red");   
+var gameover_text = new sjs.Text("You have failed...",28,"red");    
 var restartBtn = new sjs.Button("Restart", function(){  
 window.location = "index.html";   
 });
