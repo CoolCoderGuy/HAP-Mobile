@@ -56,7 +56,7 @@ setInterval(function(){
   var soundEffect = new Audio('BONG.mp3'); 
 sjs.onHit("ball","paddle", function(ball,paddle){   
 score = score + 1; 
-score_txt.setText("Score: "+score);    
+score_txt.setText("HHits: "+score);    
 
 if(score == 5){
  ball.pushUp(1);
@@ -105,9 +105,6 @@ window.location = "gameover.html";
   sjs.keyDown(RIGHT_KEY, function(){    
     paddle.pushRight(1);
   }); 
-sjs.keyDown(DOWN_KEY, function(){ 
-ball.friction = -0.001;
-  }); 
  sjs.keyDown(A_KEY, function(){
     paddle.pushLeft(1);
   }); 
@@ -116,16 +113,6 @@ ball.friction = -0.001;
   }); 
 sjs.keyDown(S_KEY, function(){ 
     paddle.pushDown(0.1); 
-  }); 
-sjs.keyDown(W_KEY, function(){ 
- var newball = new sjs.Image("MOGUS.png"); 
-newball.type = "newball";
-newball.setSize(25,25);  
-newball.center(); 
-newball.friction = 0;
-newball.bounce();
-newball.pushRight(5);
-newball.pushUp(7);    
   }); 
 
 sjs.keyDown(C_KEY, function(){ 
@@ -150,36 +137,65 @@ newball.pushUp(7);
  <a href="https://coolcoderguy.github.io/HAP/"target="_blank">Looking For The Desktop Version?</a> 
 </h1>   
 
-  <button style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; "onclick="myFunction()">Left Shoot</button>
+  <button style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: lightgreen; border-width: 5px; "onclick="myFunction()">Left Shoot</button> 
 
 <script>
 function myFunction() {
 
-var paddle = new sjs.Image("TOWERS.png"); 
+var paddle = new sjs.Image("Images/TOWERS.png"); 
   paddle.type = "paddle";
   paddle.setSize(100,30);
   paddle.centerH();
 
  paddle.pushLeft (10);
 }
+
 </script>
 
-<button style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; "onclick="myFunction2()">Right Shoot</button> 
+<button  style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: lightgreen; border-width: 5px; "onclick="myFunction2()">Right Shoot</button>
+
 
 <script>
 function myFunction2() {
-
-var paddle = new sjs.Image("TOWERS.png"); 
+   
+var paddle = new sjs.Image("Images/TOWERS.png");   
   paddle.type = "paddle";
   paddle.setSize(100,30);
   paddle.centerH();
 
  paddle.pushRight (10);
+
+}
+</script>
+
+<button style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: lightgreen; border-width: 5px; "onclick="myFunction3()">MOGUS</button> 
+
+<script>
+function myFunction3() {
+
+var newball = new sjs.Image("Images/MOGUS.png"); 
+newball.type = "newball";
+newball.setSize(25,25);  
+newball.center(); 
+newball.friction = 0;
+newball.bounce();
+newball.pushRight(5);
+newball.pushUp(7);    
+
+}
+</script>
+
+<button style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: lightgreen; border-width: 5px; "onclick="myFunction4()">Add Friction</button> 
+
+<script>
+function myFunction4() {    
+   
+ball.friction = -0.005;
+
 }
 </script>
   
-  <div id="target" style = "width="500" height="600" margin:25px,25px;background:grey; border-radius: 25px img 
-  border: 5px solid #555;
+  <div id="target" style = margin: auto; border-radius: 25px;
 ;"></div> 
 </body> 
 </html> 
