@@ -53,8 +53,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         background.setSize(sjs.getWidth(), sjs.getHeight());
         
         // Display high score
-        var highScore = localStorage.getItem('highScore') || 0;
-        var highScoreTxt = new sjs.Text("Mobile High Score: " + highScore, 28, "lightgreen");
+        var mobileHighScore = localStorage.getItem('highScore') || 0;
+        var mobileHighScoreTxt = new sjs.Text("Mobile High Score: " + highScore, 28, "lightgreen");
         highScoreTxt.center().top(50);
 
         var gameover_text = new sjs.Text("You get an E for effort",20,"red");
