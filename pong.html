@@ -209,7 +209,31 @@ ball.friction = -0.005;
 }
 </script>
   
-  <div id="target" style = margin: auto; border-radius: 25px;
+ 
+document.addEventListener("DOMContentLoaded", function() {
+    var startButton = document.createElement("button");
+    startButton.textContent = "Start Game";
+    startButton.addEventListener("click", start);
+    document.getElementById("target").appendChild(startButton);
+});
+</script>
+<style>
+/* Style for the start button */
+button {
+    padding: 10px 20px;
+    font-size: 100px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: limegreen;
+}
+</style>
+    
+    <div id="target" style = margin: auto; border-radius: 25px;
   "></div> 
 </body> 
 </html> 
