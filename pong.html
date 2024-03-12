@@ -66,12 +66,12 @@ function start() {
 
     var score = 0;
     var score_txt = new sjs.Text("Score: 0", 30, "red"); 
-    var highScore = localStorage.getItem('highScore') || 0; // Initialize high score from localStorage, defaulting to 0 if no high score is stored
+    var mobileHighScore = localStorage.getItem('highScore') || 0; // Initialize high score from localStorage, defaulting to 0 if no high score is stored
 
     var soundEffect = new Audio('BONG.mp3'); 
     sjs.onHit("ball","paddle", function(ball,paddle){   
         score = score + 1; 
-        score_txt.setText("HHHHHHHits: "+score);     
+        score_txt.setText("HHits: "+score);     
 
         if(score == 5){
             ball.pushUp(1);
@@ -117,9 +117,9 @@ function start() {
     });
 
     sjs.onHit("ball",["top_screen","bottom_screen"], function(){ 
-        if(score > highScore) {
-            highScore = score; // Replace high score with current score if current score is higher
-            localStorage.setItem('highScore', highScore); // Save updated high score to localStorage
+        if(score > mobileHighScore) {
+            mobileHighScore = score; // Replace high score with current score if current score is higher
+            localStorage.setItem('mobileHighScore', highScore); // Save updated high score to localStorage
         }
         window.location = "gameover.html";
     }); 
