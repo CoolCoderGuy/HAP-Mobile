@@ -40,11 +40,6 @@ function start() {
     ball.pushUp(2);
     ball.pushLeft(3);
 
-    var paddle = new sjs.Image("TOWERS.png"); 
-    paddle.type = "paddle";
-    paddle.setSize(100,30);
-    paddle.centerH();
-
     setInterval(function(){
         console.log(ball.x + " , " + paddle.x);  
     },0); 
