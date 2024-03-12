@@ -1,141 +1,281 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">     
-<title> Play Historically Accurate Pong </title> 
+
+ <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KWZQ7JJC');</script>
+<!-- End Google Tag Manager -->  
+ 
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QJ8C50TG1W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QJ8C50TG1W');
+</script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historically Accurate Pong Play</title> 
 <link rel="icon" type="image/x-icon" href="PLANE.png">
-<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script> 
-<script> 
-function startGame(){
-  sjs.open();  
+<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+<script>
+function start() {
+    sjs.open();
 
-  var background = new sjs.Image("background.png");
-  background.setSize(sjs.getWidth(), sjs.getHeight());
+    var background = new sjs.Image("background.png");
+    background.setSize(sjs.getWidth(), sjs.getHeight());
 
-  var ball = new sjs.Image("PLANE.png");   
-  ball.type = "ball";
-  ball.setSize(55,55);
-  ball.center();
-  ball.friction = 0;
-  ball.bounce();
-  ball.pushUp(2);
-  ball.pushLeft(3);
+    var ball = new sjs.Image("PLANE.png");   
+    ball.type = "ball";
+    ball.setSize(55,55);
+    ball.center();
+    ball.friction = 0;
+    ball.bounce();
+    ball.pushUp(2);
+    ball.pushLeft(3);
 
-  var paddle = new sjs.Image("TOWERS.png");
-  paddle.type = "paddle";
-  paddle.setSize(100,30);
-  paddle.centerH().bottom(); 
+    var paddle = new sjs.Image("TOWERS.png"); 
+    paddle.type = "paddle";
+    paddle.setSize(100,30);
+    paddle.centerH();
 
-  setInterval(function(){
-    console.log(ball.x + " , " + paddle.x);  
-  },0); 
+    setInterval(function(){
+        console.log(ball.x + " , " + paddle.x);  
+    },0); 
 
-  setInterval(function(){
-    if(ball.y > 100){
-      if(ball.x > paddle.x){
-        paddle.pushRight();
-      } else {
-        paddle.pushLeft(); 
-      }
-    }
-  },25);
+    setInterval(function(){
+        if(ball.y > 100){
+            if(ball.x > paddle2.x){
+                paddle2.pushRight();
+            } else {
+                paddle2.pushLeft(); 
+            }
+        }
+    },25);
 
-  var score = 0;
-  var score_txt = new sjs.Text("Score: 0", 30, "red"); 
-  var highScore = localStorage.getItem('highScore') || 0; // Initialize high score from localStorage, defaulting to 0 if no high score is stored
+    var paddle2 = new sjs.Image("TOWERS.png");
+    paddle2.type = "paddle";
+    paddle2.setSize(100,30);
+    paddle2.center().bottom(); 
+
+    var score = 0;
+    var score_txt = new sjs.Text("Score: 0", 30, "red"); 
+    var highScore = localStorage.getItem('highScore') || 0; // Initialize high score from localStorage, defaulting to 0 if no high score is stored
+
+    var soundEffect = new Audio('BONG.mp3'); 
+    sjs.onHit("ball","paddle", function(ball,paddle){   
+        score = score + 1; 
+        score_txt.setText("HHHits: "+score);     
+
+        if(score == 5){
+            ball.pushUp(1);
+            ball.pushLeft(1);   
+        }
+
+        if(score == 10){
+            ball.setSize(50,50);     
+        }
+
+        if(score == 20){
+            ball.pushUp(-1);
+            ball.pushLeft(-1);   
+        }
+
+        if(score == 25){
+            ball.setSize(40,40);   
+        }
+
+        if(score == 35){
+            paddle.setSize(75,30);  
+        }
+
+        if(score == 38){
+            paddle2.setSize(75,30); 
+        }
+
+        if(score == 40){
+            ball.setSize(25,25); 
+        }
+
+        if(score == 45){
+            ball.setSize(15,15); 
+        }
+
+        if(score > highScore) {
+            highScore = score; // Replace high score with current score if current score is higher
+            localStorage.setItem('highScore', highScore); // Save updated high score to localStorage
+        }
+
+        soundEffect.play();
+        sjs.bounceOff(ball,paddle);
+    });
+
+    sjs.onHit("ball",["top_screen","bottom_screen"], function(){ 
+        if(score > highScore) {
+            highScore = score; // Replace high score with current score if current score is higher
+            localStorage.setItem('highScore', highScore); // Save updated high score to localStorage
+        }
+        window.location = "gameover.html";
+    }); 
   
-  var soundEffect = new Audio('BONG.mp3'); 
-  sjs.onHit("ball","paddle", function(ball,paddle){   
-    score = score + 1; 
-    score_txt.setText("HHHHHits: "+score);    
+    sjs.keyDown(LEFT_KEY, function(){
+        paddle.pushLeft(1); 
+    }); 
 
-    if(score == 5){
-      ball.pushUp(1);
-      ball.pushLeft(1);   
-    }
+    sjs.keyDown(RIGHT_KEY, function(){    
+        paddle.pushRight(1);
+    }); 
 
-    if(score == 10){
-      ball.setSize(50,50);     
-    }
+    sjs.keyDown(DOWN_KEY, function(){ 
+        ball.friction = -0.001;
+    }); 
 
-    if(score == 20){
-      ball.pushUp(-1);
-      ball.pushLeft(-1);   
-    }
+    sjs.keyDown(A_KEY, function(){
+        paddle.pushLeft(1);
+    }); 
 
-    if(score == 25){
-      ball.setSize(40,40);   
-    }
+    sjs.keyDown(D_KEY, function(){  
+        paddle.pushRight(1);
+    }); 
 
-    if(score == 35){
-      paddle.setSize(75,30);  
-    }
-    if(score == 38){
-      paddle.setSize(75,30); 
-    }
-    if(score == 40){
-      ball.setSize(25,25); 
-    }
+    sjs.keyDown(W_KEY, function(){ 
+        var newball = new sjs.Image("MOGUS.png"); 
+        newball.type = "newball";
+        newball.setSize(25,25);  
+        newball.center(); 
+        newball.friction = 0;
+        newball.bounce();
+        newball.pushRight(5);
+        newball.pushUp(7);    
+    }); 
 
-    if(score == 45){
-      ball.setSize(15,15); 
-    }
+    sjs.keyDown(C_KEY, function(){ 
+        var newball = new sjs.Image("CHARLIE.png"); 
+        newball.type = "newball";
+        newball.setSize(75,75);   
+        newball.center(); 
+        newball.friction = 0;
+        newball.bounce();
+        newball.pushRight(5);
+        newball.pushUp(7);    
+    }); 
 
-    if(score > highScore) {
-      highScore = score; // Replace high score with current score if current score is higher
-      localStorage.setItem('highScore', highScore); // Save updated high score to localStorage
-    }
-
-    soundEffect.play();
-    sjs.bounceOff(ball,paddle);
-  });
-
-  sjs.onHit("ball",["top_screen","bottom_screen"], function(){ 
-    if(score > highScore) {
-      highScore = score; // Replace high score with current score if current score is higher
-      localStorage.setItem('highScore', highScore); // Save updated high score to localStorage
-    }
-    window.location = "gameover.html";
-  }); 
+    sjs.keyDown(V_KEY, function(){ 
+        var newball = new sjs.Image("VERBALASE.png"); 
+        newball.type = "newball";
+        newball.setSize(75,75);   
+        newball.center(); 
+        newball.friction = 0;
+        newball.bounce();
+        newball.pushRight(5);
+        newball.pushUp(7);    
+    }); 
   
-  sjs.keyDown(S_KEY, function(){ 
-    paddle.pushDown(0.1); 
-  }); 
-
-  sjs.keyDown(C_KEY, function(){ 
-    var newball = new sjs.Image("CHARLIE.png"); 
-    newball.type = "newball";
-    newball.setSize(75,75);   
-    newball.center(); 
-    newball.friction = 0;
-    newball.bounce();
-    newball.pushRight(5);
-    newball.pushUp(7);    
-  }); 
-
-  // Reset score to 0 every time the game starts
-  score = 0;
+    // Reset score to 0 every time the game starts
+    score = 0;
 }
-</script> 
-</head> 
-  
-<body>
-<div>
-  <h1> Historically Accurate Pong Mobile   
-    For Educational Purposes Only 
-    <a href="https://coolcoderguy.github.io/CODfishgame/" target="_blank">Play A Chill Game!</a>  
-    <a href="https://coolcoderguy.github.io/HAP/" target="_blank">Looking For The Desktop Version?</a> 
-  </h1>   
-</div>
 
-<div style="text-align: center;">
-  <button style="font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: lightgreen; border-width: 5px;" onclick="startGame()">Start</button> 
-</div>
+document.addEventListener("DOMContentLoaded", function() {
+    var startButton = document.createElement("button");
+    startButton.textContent = "Start Game";
+    startButton.addEventListener("click", start);
+    document.getElementById("target").appendChild(startButton);
+});
+</script>
+<style>
+/* Style for the start button */
+button {
+    padding: 10px 20px;
+    font-size: 100px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: limegreen; 
+}
+</style>
+
+<body>
 
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWZQ7JJC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWZQ7JJC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+        
+  <div>
+    <h1> Historically Accurate Pong   
+        For Educational Purposes Only 
+        <a href="https://coolcoderguy.github.io/CODfishgame/"target="_blank">Play A Chill Game!</a>  
+        <a href="https://coolcoderguy.github.io/HAP-Mobile/"target="_blank">Looking For The Mobile Version?</a>  
+    </h1>   
+   
+ <button style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: lightgreen; border-width: 5px; "onclick="myFunction()">Left Shoot</button> 
 
+<script>
+function myFunction() {
+
+var paddle = new sjs.Image("TOWERS.png"); 
+  paddle.type = "paddle";
+  paddle.setSize(100,30);
+  paddle.centerH();
+
+ paddle.pushLeft (10);
+}
+
+</script>
+
+<button  style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: lightgreen; border-width: 5px; "onclick="myFunction2()">Right Shoot</button>
+
+
+<script>
+function myFunction2() {
+   
+var paddle = new sjs.Image("TOWERS.png");   
+  paddle.type = "paddle";
+  paddle.setSize(100,30);
+  paddle.centerH();
+
+ paddle.pushRight (10);
+
+}
+</script>
+
+<button style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: lightgreen; border-width: 5px; "onclick="myFunction3()">MOGUS</button> 
+
+<script>
+function myFunction3() {
+
+var newball = new sjs.Image("MOGUS.png"); 
+newball.type = "newball";
+newball.setSize(25,25);  
+newball.center(); 
+newball.friction = 0;
+newball.bounce();
+newball.pushRight(5);
+newball.pushUp(7);    
+
+}
+</script>
+
+<button style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: lightgreen; border-width: 5px; "onclick="myFunction4()">Add Friction</button> 
+
+<script>
+function myFunction4() {    
+   
+ball.friction = -0.005;
+
+}
+</script>
+
+<div id="target" style="margin:auto; border-radius: 100px;"></div>  
 </body> 
 </html>
- 
