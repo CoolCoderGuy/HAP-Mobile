@@ -50,17 +50,19 @@ toggle = true;
   var background = new sjs.Image("OOPS.png");  
 background.setSize(sjs.getWidth(), sjs.getHeight());
 
-   // Display high score
+// Display high score
         var highScore = localStorage.getItem('highScore') || 0;
-        var highScoreTxt = new sjs.Text("       Mobile High Score: " + highScore, 28, "red");
-        highScoreTxt.center().top(20);
- 
- var gameover_text = new sjs.Text("Good Effort",28,"lightgreen");
-var restartBtn = new sjs.Button("Restart", function(){  
-window.location = "index.html";   
-});
-restartBtn.center();           
+        var highScoreTxt = new sjs.Text("Mobile High Score: " + highScore, 28, "lightgreen");
+        highScoreTxt.center().top(50);
 
+        var gameover_text = new sjs.Text("You get an E for effort",20,"red");
+        gameover_text.center().bottom(0.5);
+        var restartBtn = new sjs.Button("Restart", function(){  
+            window.location = "index.html";   
+        });
+        restartBtn.center();           
+    }
+ 
 } //end start  
 </script>
 </head>
