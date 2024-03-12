@@ -1,7 +1,6 @@
 <html>
 <head>
 
-
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -61,7 +60,8 @@ setInterval(function(){
 
   var score = 0;
   var score_txt = new sjs.Text("Score: 0", 30, "red"); 
-
+var highScore = localStorage.getItem('highScore') || 0; // Initialize high score from localStorage, defaulting to 0 if no high score is stored
+  
   var soundEffect = new Audio('BONG.mp3'); 
 sjs.onHit("ball","paddle", function(ball,paddle){   
 score = score + 1; 
@@ -98,16 +98,24 @@ if(score == 40){
 if(score == 45){
   ball.setSize(15,15); 
 }
-if(score == 50){
-  window.location = "Winner.html";   
-}
+
+ if(score > highScore) {
+                highScore = score; // Replace high score with current score if current score is higher
+                localStorage.setItem('highScore', highScore); // Save updated high score to localStorage
+            }
+  
 soundEffect.play();
 sjs.bounceOff(ball,paddle);
 });
-sjs.onHit("ball",["top_screen","bottom_screen"], function(){ 
-window.location = "gameover.html";
-}); 
- 
+
+   sjs.onHit("ball",["top_screen","bottom_screen"], function(){ 
+        if(score > highScore) {
+            highScore = score; // Replace high score with current score if current score is higher
+            localStorage.setItem('highScore', highScore); // Save updated high score to localStorage
+        }
+        window.location = "gameover.html";
+    }); 
+  
 sjs.keyDown(S_KEY, function(){ 
     paddle.pushDown(0.1); 
   }); 
@@ -123,6 +131,9 @@ newball.pushRight(5);
 newball.pushUp(7);    
   }); 
 
+ // Reset score to 0 every time the game starts
+    score = 0;
+  
 } //end start   
 </script> 
 </head> 
