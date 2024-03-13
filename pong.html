@@ -66,7 +66,7 @@ function start() {
     var soundEffect = new Audio('BONG.mp3'); 
     sjs.onHit("ball","paddle", function(ball,paddle){   
         score = score + 1; 
-        score_txt.setText("HHHHHHits: "+score);     
+        score_txt.setText("HHHHHits: "+score);     
 
         if(score == 5){
             ball.pushUp(1);
@@ -214,7 +214,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </h1>   
    
    
- <button style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: lightgreen; border-width: 5px; "onclick="myFunction()">Left Shoot</button> 
+ <button style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: green; border-width: 20px; "onclick="myFunction()">Left Shoot</button> 
 <script>
  
 function myFunction() {
@@ -229,7 +229,7 @@ var paddle = new sjs.Image("TOWERS.png");
 
 </script>
 
-<button  style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: lightgreen; border-width: 5px; "onclick="myFunction2()">Right Shoot</button>
+<button  style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: lightgreen; border-width: 20px; "onclick="myFunction2()">Right Shoot</button>
 
 
 <script>
@@ -245,7 +245,7 @@ var paddle = new sjs.Image("TOWERS.png");
 }
 </script>
 
-<button style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: lightgreen; border-width: 5px; "onclick="myFunction3()">MOGUS</button> 
+<button style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: lightgreen; border-width: 20px; "onclick="myFunction3()">MOGUS</button> 
 
 <script>
 function myFunction3() {
@@ -262,7 +262,7 @@ newball.pushUp(7);
 }
 </script>
 
-<button style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: lightgreen; border-width: 5px; "onclick="myFunction4()">Add Friction</button> 
+<button style = " font-size: 50px; border-radius: 5000px; background-color: black; color: darkred; border-color: lightgreen; border-width: 20px; "onclick="myFunction4()">Add Friction</button> 
 
 <script>
 function myFunction4() {    
