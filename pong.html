@@ -23,7 +23,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Historically Accurate Pong Play</title> 
 <link rel="icon" type="image/x-icon" href="PLANE.png">
-<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+ <link rel="stylesheet" type="text/css" href="Styles.css">
+ <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
 <script>
 function start() {
     sjs.open();
@@ -184,8 +185,7 @@ var startButton = document.createElement("button");
 startButton.textContent = "Start Game";
 startButton.classList.add("startButton"); // Add this line to assign the class
 startButton.addEventListener("click", start);
-document.getElementById("target").appendChild(startButton);
- }); 
+document.getElementById("target").appendChild(startButton); 
 </script>
 
  <body>
