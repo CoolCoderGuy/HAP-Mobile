@@ -173,13 +173,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function myFunction() {
 
- paddle.pushLeft (5); 
+ paddle.pushLeft (7); 
 
 }
 
 function myFunction2() {
 
- paddle.pushRight (5); 
+ paddle.pushRight (7); 
 
 }
 
