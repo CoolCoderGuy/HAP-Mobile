@@ -205,9 +205,12 @@ function myFunction3() {
     newball.type = "newball";
     newball.setSize(25,25);  
     newball.center(); 
-    newball
+    newball.friction = 0;
+    newball.bounce();
+    newball.pushRight(5);
+    newball.pushUp(7);
 }
-
+ 
 function myFunction4() {
   ball.friction -= 0.001;
 }
