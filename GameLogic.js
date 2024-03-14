@@ -171,6 +171,13 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("target").appendChild(startButton);
 });
 
+// JavaScript code to handle touch events
+document.getElementById("moveLeftButton").addEventListener("touchstart", myFunction);
+document.getElementById("moveLeftButton").addEventListener("touchend", stopLeft);
+
+document.getElementById("moveRightButton").addEventListener("touchstart", myFunction2);
+document.getElementById("moveRightButton").addEventListener("touchend", stopRight);
+
 function myFunction() {
 
  paddle.pushLeft (7); 
