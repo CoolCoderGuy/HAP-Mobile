@@ -31,7 +31,7 @@
 
 <style>
 
-.startButton {
+.button {
     padding: 10px 20px;
     font-size: 100px;
     background-color: red;
@@ -41,11 +41,11 @@
 box-shadow: 0 15px #666 ; 
 }
 
- .startButton:hover {
+ .button:hover {
     background-color: lightgreen; 
 }
 
-.startButton:active {
+.button:active {
   background-color: limegreen;
   box-shadow: 0 5px limegreen; 
   transform: translateY(4px);
