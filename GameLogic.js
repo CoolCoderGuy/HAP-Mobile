@@ -23,33 +23,12 @@ function start() {
     paddle.setSize(100, 30);
     paddle.centerH();
 
-    // Touch event listeners
-    document.getElementById("leftButton").addEventListener("touchstart", function(event) {
-        event.preventDefault(); // Prevent default touch behavior (like scrolling)
-        paddle.pushLeft(1); // Start moving paddle left
-    });
-    
-    document.getElementById("leftButton").addEventListener("touchend", function(event) {
-        event.preventDefault(); // Prevent default touch behavior (like scrolling)
-        paddle.pushLeft(0); // Stop moving paddle left
-    });
-
-    document.getElementById("rightButton").addEventListener("touchstart", function(event) {
-        event.preventDefault(); // Prevent default touch behavior (like scrolling)
-        paddle.pushRight(1); // Start moving paddle right
-    });
-    
-    document.getElementById("rightButton").addEventListener("touchend", function(event) {
-        event.preventDefault(); // Prevent default touch behavior (like scrolling)
-        paddle.pushRight(0); // Stop moving paddle right
-    });   
-    
     /* Set up paddle2 */
     paddle2 = new sjs.Image("TOWERS.png");
     paddle2.type = "paddle";
     paddle2.setSize(100,30);
-    paddle2.center().bottom();    
-    
+    paddle2.center().bottom();
+
     setInterval(function(){
         console.log(ball.x + " , " + paddle.x);  
     },0); 
@@ -193,24 +172,32 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function myFunction() {
-    paddle.pushLeft (); 
+
+ paddle.pushLeft (7); 
+
 }
 
 function myFunction2() {
-    paddle.pushRight (); 
+
+ paddle.pushRight (7); 
+
 }
 
 function myFunction3() {
-    var newball = new sjs.Image("MOGUS.png"); 
-    newball.type = "newball";
-    newball.setSize(25,25);  
-    newball.center(); 
-    newball.friction = 0;
-    newball.bounce();
-    newball.pushRight(5);
-    newball.pushUp(7);
+   
+  var newball = new sjs.Image("MOGUS.png"); 
+newball.type = "newball";
+newball.setSize(25,25);  
+newball.center(); 
+newball.friction = 0;
+newball.bounce();
+newball.pushRight(5);
+newball.pushUp(7);
+
 }
- 
+
 function myFunction4() {
+
   ball.friction -= 0.001;
+  
 }
