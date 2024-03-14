@@ -2,7 +2,7 @@
 
 //Control Buttons Styles
 
-.controlButton {
+.controlButtons {
     padding: 25px 25px;
     font-size: 40px;
     color: darkred;
@@ -15,12 +15,12 @@
     box-shadow: 0 15px darkred;
 }
 
-.controlButton:hover {
+.controlButtons:hover {
     background-color: seagreen;
     color: lightred;
 }
 
-.controlButton:active {
+.controlButtons:active {
     background-color: lightgreen;
     box-shadow: 0 5px lightgreen;
     transform: translateY(4px);
@@ -31,7 +31,7 @@
 
 <style>
 
-button {
+.startButton {
     padding: 10px 20px;
     font-size: 100px;
     background-color: red;
@@ -41,11 +41,11 @@ button {
 box-shadow: 0 15px #666 ; 
 }
 
- button:hover {
+ .startButton:hover {
     background-color: lightgreen; 
 }
 
-button:active {
+.startButton:active {
   background-color: limegreen;
   box-shadow: 0 5px limegreen; 
   transform: translateY(4px);
