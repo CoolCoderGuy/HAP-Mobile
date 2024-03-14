@@ -50,7 +50,7 @@ function start() {
     var soundEffect = new Audio('BONG.mp3'); 
     sjs.onHit("ball","paddle", function(ball,paddle){   
         score = score + 1; 
-        score_txt.setText("HHHHHits: "+score);     
+        score_txt.setText("Hits: "+score);     
 
         if(score == 5){
             ball.pushUp(1);
