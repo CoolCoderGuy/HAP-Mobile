@@ -206,6 +206,7 @@ function myFunction3() {
     newball.setSize(25,25);  
     newball.center(); 
     newball
+}
 
 function myFunction4() {
   ball.friction -= 0.001;
