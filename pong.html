@@ -180,12 +180,12 @@ function start() {
     score = 0;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    var startButton = document.createElement("button");
-    startButton.textContent = "Start Game";
-    startButton.addEventListener("click", start);
-    document.getElementById("target").appendChild(startButton);
-});
+var startButton = document.createElement("button");
+startButton.textContent = "Start Game";
+startButton.classList.add("startButton"); // Add this line to assign the class
+startButton.addEventListener("click", start);
+document.getElementById("target").appendChild(startButton);
+ }); 
 </script>
 
  <body>
