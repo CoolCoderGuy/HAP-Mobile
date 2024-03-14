@@ -1,9 +1,7 @@
+var paddle, paddle2, ball; // Declare paddle, paddle2, and ball variables in the global scope
+
 function start() {
-
-  sjs.open();
-
- /* Declare paddle, paddle2, and ball variables */
-    var paddle, paddle2, ball;
+    sjs.open();
 
     /* Set up background image */
     var background = new sjs.Image("background.png");
@@ -24,9 +22,8 @@ function start() {
     paddle.type = "paddle";
     paddle.setSize(100, 30);
     paddle.centerH();
-}
 
-  /* Set up paddle2 */
+    /* Set up paddle2 */
     paddle2 = new sjs.Image("TOWERS.png");
     paddle2.type = "paddle";
     paddle2.setSize(100,30);
@@ -89,7 +86,7 @@ function start() {
             ball.setSize(15,15); 
         }
 
- if(score == 50){
+        if(score == 50){
             paddle2.setSize(150,50); 
         }
      
