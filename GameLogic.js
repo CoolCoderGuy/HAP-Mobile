@@ -165,11 +165,11 @@ function start() {
         
         // Adjust paddle movement speed based on distance
         var distance = Math.abs(ballX - paddleX);
-        var speed = 5; // Adjust this value as needed
+        var speed = 3; // Adjust this value as needed
         var moveAmount = speed * (direction === 0 ? 0 : direction / distance); // Ensure smooth movement
         
         // Move the paddle
-        paddle2.pushRight(moveAmount); // Adjust this based on your game controls
+        paddle2.pushRight(3); // Adjust this based on your game controls
     }
 
     setInterval(updateAIPaddle, 10); // Adjust the interval as needed
