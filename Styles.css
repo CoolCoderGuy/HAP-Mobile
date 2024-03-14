@@ -2,7 +2,7 @@
 
 //Control Buttons Styles
 
-.controlButtons {
+.controlButton {
     padding: 25px 25px;
     font-size: 40px;
     color: darkred;
@@ -15,12 +15,12 @@
     box-shadow: 0 15px darkred;
 }
 
-.controlButtons:hover {
+.controlButton:hover {
     background-color: seagreen;
     color: lightred;
 }
 
-.controlButtons:active {
+.controlButton:active {
     background-color: lightgreen;
     box-shadow: 0 5px lightgreen;
     transform: translateY(4px);
