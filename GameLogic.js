@@ -23,7 +23,7 @@ function start() {
     paddle.setSize(100, 30);
     paddle.centerH();
 
- // Touch event listeners
+    // Touch event listeners
     document.getElementById("leftButton").addEventListener("touchstart", function(event) {
         event.preventDefault(); // Prevent default touch behavior (like scrolling)
         paddle.pushLeft(1); // Start moving paddle left
@@ -183,7 +183,7 @@ function start() {
   
     // Reset score to 0 every time the game starts
     score = 0;
-
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     var startButton = document.createElement("button");
@@ -193,32 +193,20 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function myFunction() {
-
- paddle.pushLeft (); 
-
+    paddle.pushLeft (); 
 }
 
 function myFunction2() {
-
- paddle.pushRight (); 
-
+    paddle.pushRight (); 
 }
 
 function myFunction3() {
-   
-  var newball = new sjs.Image("MOGUS.png"); 
-newball.type = "newball";
-newball.setSize(25,25);  
-newball.center(); 
-newball.friction = 0;
-newball.bounce();
-newball.pushRight(5);
-newball.pushUp(7);
-
-}
+    var newball = new sjs.Image("MOGUS.png"); 
+    newball.type = "newball";
+    newball.setSize(25,25);  
+    newball.center(); 
+    newball
 
 function myFunction4() {
-
   ball.friction -= 0.001;
-  
 }
