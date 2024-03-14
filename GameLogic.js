@@ -27,34 +27,7 @@ function start() {
     paddle2 = new sjs.Image("TOWERS.png");
     paddle2.type = "paddle";
     paddle2.setSize(100,30);
-    paddle2.center().bottom();
-
-   
-function updateAIPaddle() {
-    // Get the position of the ball and the paddle
-    var ballX = ball.x;
-    var paddleX = paddle2.x;
-    
-    // Calculate the direction for the paddle to move
-    var direction = 0; // 0 means no movement, -1 means left, 1 means right
-    
-    if (ballX < paddleX) {
-        direction = -1; // Move paddle left
-    } else if (ballX > paddleX) {
-        direction = 1; // Move paddle right
-    }
-    
-    // Adjust paddle movement speed based on distance
-    var distance = Math.abs(ballX - paddleX);
-    var speed = 5; // Adjust this value as needed
-    var moveAmount = speed * (direction === 0 ? 0 : direction / distance); // Ensure smooth movement
-    
-    // Move the paddle
-    paddle2.pushRight(moveAmount); // Adjust this based on your game controls
-}
-
-setInterval(updateAIPaddle, 10); // Adjust the interval as needed
-}    
+    paddle2.center().bottom(); 
     
     var score = 0;
     var score_txt = new sjs.Text("Score: 0", 30, "red"); 
@@ -214,3 +187,29 @@ function myFunction4() {
   ball.friction -= 0.001;
   
 }
+
+function updateAIPaddle() {
+    // Get the position of the ball and the paddle
+    var ballX = ball.x;
+    var paddleX = paddle2.x;
+    
+    // Calculate the direction for the paddle to move
+    var direction = 0; // 0 means no movement, -1 means left, 1 means right
+    
+    if (ballX < paddleX) {
+        direction = -1; // Move paddle left
+    } else if (ballX > paddleX) {
+        direction = 1; // Move paddle right
+    }
+    
+    // Adjust paddle movement speed based on distance
+    var distance = Math.abs(ballX - paddleX);
+    var speed = 5; // Adjust this value as needed
+    var moveAmount = speed * (direction === 0 ? 0 : direction / distance); // Ensure smooth movement
+    
+    // Move the paddle
+    paddle2.pushRight(moveAmount); // Adjust this based on your game controls
+}
+
+setInterval(updateAIPaddle, 10); // Adjust the interval as needed
+}   
