@@ -23,18 +23,26 @@ function start() {
     paddle.setSize(100, 30);
     paddle.centerH();
 
- /* Hold Control*/
+ // Touch event listeners
     document.getElementById("leftButton").addEventListener("touchstart", function(event) {
         event.preventDefault(); // Prevent default touch behavior (like scrolling)
         paddle.pushLeft(1); // Start moving paddle left
     });
     
-    /* Hold Controls */
-    document.getElementById("rightButton").addEventListener("touchend", function(event) {
+    document.getElementById("leftButton").addEventListener("touchend", function(event) {
         event.preventDefault(); // Prevent default touch behavior (like scrolling)
         paddle.pushLeft(0); // Stop moving paddle left
     });
-   
+
+    document.getElementById("rightButton").addEventListener("touchstart", function(event) {
+        event.preventDefault(); // Prevent default touch behavior (like scrolling)
+        paddle.pushRight(1); // Start moving paddle right
+    });
+    
+    document.getElementById("rightButton").addEventListener("touchend", function(event) {
+        event.preventDefault(); // Prevent default touch behavior (like scrolling)
+        paddle.pushRight(0); // Stop moving paddle right
+    });   
     
     /* Set up paddle2 */
     paddle2 = new sjs.Image("TOWERS.png");
