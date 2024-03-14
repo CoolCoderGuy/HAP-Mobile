@@ -34,7 +34,7 @@ function start() {
         event.preventDefault(); // Prevent default touch behavior (like scrolling)
         paddle.pushLeft(0); // Stop moving paddle left
     });
-}    
+   
     
     /* Set up paddle2 */
     paddle2 = new sjs.Image("TOWERS.png");
