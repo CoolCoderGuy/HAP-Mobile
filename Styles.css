@@ -1,0 +1,55 @@
+//CSS For Buttons
+
+//Control Buttons Styles
+
+.controlButton {
+    padding: 25px 25px;
+    font-size: 40px;
+    color: darkred;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    background-color: black;
+    border: none;
+    border-radius: 100px;
+    box-shadow: 0 15px darkred;
+}
+
+.controlButton:hover {
+    background-color: seagreen;
+    color: lightred;
+}
+
+.controlButton:active {
+    background-color: lightgreen;
+    box-shadow: 0 5px lightgreen;
+    transform: translateY(4px);
+    color: darkblue;
+}
+
+//Start Button Styles
+
+<style>
+
+button {
+    padding: 10px 20px;
+    font-size: 100px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+box-shadow: 0 15px #666 ; 
+}
+
+ button:hover {
+    background-color: lightgreen; 
+}
+
+button:active {
+  background-color: limegreen;
+  box-shadow: 0 5px limegreen; 
+  transform: translateY(4px);
+color: darkblue;
+}
+
+</style>
