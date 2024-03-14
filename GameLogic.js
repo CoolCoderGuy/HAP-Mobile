@@ -31,7 +31,7 @@ function start() {
 
     setInterval(function(){
         console.log(ball.x + " , " + paddle.x);  
-    },10); 
+    },0); 
 
     setInterval(function(){
         if(ball.y > 100){
@@ -164,19 +164,14 @@ function start() {
     score = 0;
 }
 
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     var startButton = document.createElement("button");
     startButton.textContent = "Start Game";
     startButton.addEventListener("click", start);
     document.getElementById("target").appendChild(startButton);
 });
-
-// JavaScript code to handle touch events
-document.getElementById("moveLeftButton").addEventListener("touchstart", myFunction);
-document.getElementById("moveLeftButton").addEventListener("touchend", stopLeft);
-
-document.getElementById("moveRightButton").addEventListener("touchstart", myFunction2);
-document.getElementById("moveRightButton").addEventListener("touchend", stopRight);
 
 function myFunction() {
 
@@ -187,18 +182,6 @@ function myFunction() {
 function myFunction2() {
 
  paddle.pushRight (7); 
-
-}
-
-function stopLeft() {
-
- paddle.pushLeft (0); 
-
-}
-
-function stopRight() {
-
- paddle.pushRight (0); 
 
 }
 
