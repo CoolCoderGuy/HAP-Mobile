@@ -27,8 +27,22 @@ function start() {
     paddle2 = new sjs.Image("TOWERS.png");
     paddle2.type = "paddle";
     paddle2.setSize(100,30);
-    paddle2.center().bottom(); 
-    
+    paddle2.center().bottom();
+
+    setInterval(function(){
+        console.log(ball.x + " , " + paddle.x);  
+    },10); 
+
+    setInterval(function(){
+        if(ball.y > 100){
+            if(ball.x > paddle2.x){
+                paddle2.pushRight();
+            } else {
+                paddle2.pushLeft(); 
+            }
+        }
+    },25);
+
     var score = 0;
     var score_txt = new sjs.Text("Score: 0", 30, "red"); 
     var mobileHighScore = localStorage.getItem('mobileHighScore') || 0; // Initialize high score from localStorage, defaulting to 0 if no high score is stored
@@ -148,31 +162,6 @@ function start() {
   
     // Reset score to 0 every time the game starts
     score = 0;
-
-    function updateAIPaddle() {
-        // Get the position of the ball and the paddle
-        var ballX = ball.x;
-        var paddleX = paddle2.x;
-        
-        // Calculate the direction for the paddle to move
-        var direction = 0; // 0 means no movement, -1 means left, 1 means right
-        
-        if (ballX < paddleX) {
-            direction = -1; // Move paddle left
-        } else if (ballX > paddleX) {
-            direction = 1; // Move paddle right
-        }
-        
-        // Adjust paddle movement speed based on distance
-        var distance = Math.abs(ballX - paddleX);
-        var speed = 3; // Adjust this value as needed
-        var moveAmount = speed * (direction === 0 ? 0 : direction / distance); // Ensure smooth movement
-        
-        // Move the paddle
-        paddle2.pushRight(3); // Adjust this based on your game controls
-    }
-
-    setInterval(updateAIPaddle, 10); // Adjust the interval as needed
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -183,24 +172,32 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function myFunction() {
-    paddle.pushLeft (7); 
+
+ paddle.pushLeft (7); 
+
 }
 
 function myFunction2() {
-    paddle.pushRight (7); 
+
+ paddle.pushRight (7); 
+
 }
 
 function myFunction3() {
-    var newball = new sjs.Image("MOGUS.png"); 
-    newball.type = "newball";
-    newball.setSize(25,25);  
-    newball.center(); 
-    newball.friction = 0;
-    newball.bounce();
-    newball.pushRight(5);
-    newball.pushUp(7);
+   
+  var newball = new sjs.Image("MOGUS.png"); 
+newball.type = "newball";
+newball.setSize(25,25);  
+newball.center(); 
+newball.friction = 0;
+newball.bounce();
+newball.pushRight(5);
+newball.pushUp(7);
+
 }
 
 function myFunction4() {
-    ball.friction -= 0.001;
+
+  ball.friction -= 0.001;
+  
 }
