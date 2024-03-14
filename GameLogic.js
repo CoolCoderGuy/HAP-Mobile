@@ -164,8 +164,6 @@ function start() {
     score = 0;
 }
 
-}
-
 document.addEventListener("DOMContentLoaded", function() {
     var startButton = document.createElement("button");
     startButton.textContent = "Start Game";
