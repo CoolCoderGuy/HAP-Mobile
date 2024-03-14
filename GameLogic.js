@@ -31,7 +31,7 @@ function start() {
 
     setInterval(function(){
         console.log(ball.x + " , " + paddle.x);  
-    },0); 
+    },10); 
 
     setInterval(function(){
         if(ball.y > 100){
