@@ -196,13 +196,52 @@ button {
     color: white;
     border-radius: 5px;
     cursor: pointer;
+box-shadow: 0 15px #666 ; 
 }
-button:hover {
-    background-color: limegreen; 
+
+ button:hover {
+    background-color: lightgreen; 
+}
+
+button:active {
+  background-color: limegreen;
+  box-shadow: 0 5px limegreen; 
+  transform: translateY(4px);
+color: darkblue;
 }
 </style>
 
-<body>
+//Style For Control Buttons
+ <style>
+
+.controlButton {
+  padding: 25px 25px;
+  font-size: 40px;
+  color: darkred;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  background-color: black;
+  border: 100px;
+  border-radius: 100px;
+  border-color: lightgreen;
+ border-width: 10px;
+  box-shadow: 0 15px darkred;
+border-color: lightgreen;
+}
+
+.controlButton:hover {background-color: seagreen; color: lightred;}   
+
+.controlButton:active {
+  background-color: lightgreen;
+  box-shadow: 0 5px lightgreen; 
+  transform: translateY(4px);
+color: darkblue;
+}
+
+</style> 
+
+ <body>
 
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWZQ7JJC"
@@ -217,7 +256,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </h1>   
    
    
- <button style = " font-size: 50px; border-radius: 100px; background-color: black; color: darkred; border-color: lightgreen; border-width: 20px; "onclick="myFunction()">Left Shoot</button> 
+ <button class = "controlButton" onclick="myFunction()">Left Shoot</button> 
 <script>
  
 function myFunction() {
@@ -232,7 +271,7 @@ var paddle = new sjs.Image("TOWERS.png");
 
 </script>
 
-<button  style = " font-size: 50px; border-radius: 100px; background-color: black; color: darkred; border-color: lightgreen; border-width: 20px; "onclick="myFunction2()">Right Shoot</button>
+<button class = "controlButton" onclick="myFunction2()">Right Shoot</button>
 
 
 <script>
@@ -248,7 +287,7 @@ var paddle = new sjs.Image("TOWERS.png");
 }
 </script>
 
-<button style = " font-size: 50px; border-radius: 100px; background-color: black; color: darkred; border-color: lightgreen; border-width: 20px; "onclick="myFunction3()">MOGUS</button> 
+<button class = "controlButton" onclick="myFunction3()">MOGUS</button> 
 
 <script>
 function myFunction3() {
@@ -265,7 +304,7 @@ newball.pushUp(7);
 }
 </script>
 
-<button style = " font-size: 50px; border-radius: 100px; background-color: black; color: darkred; border-color: lightgreen; border-width: 20px; "onclick="myFunction4()">Add Friction</button> 
+<button class = "controlButton" onclick="myFunction4()">Add Friction</button> 
 
 <script>
 function myFunction4() {    
