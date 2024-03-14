@@ -2,10 +2,15 @@ function start() {
 
   sjs.open();
 
+ /* Declare paddle, paddle2, and ball variables */
+    var paddle, paddle2, ball;
+
+    /* Set up background image */
     var background = new sjs.Image("background.png");
     background.setSize(sjs.getWidth(), sjs.getHeight());
 
-    var ball = new sjs.Image("PLANE.png");   
+    /* Set up ball */
+    ball = new sjs.Image("PLANE.png");   
     ball.type = "ball";
     ball.setSize(55,55);
     ball.center();
@@ -13,6 +18,19 @@ function start() {
     ball.bounce();
     ball.pushUp(2);
     ball.pushLeft(3);
+
+    /* Set up paddle */
+    paddle = new sjs.Image("TOWERS.png");
+    paddle.type = "paddle";
+    paddle.setSize(100, 30);
+    paddle.centerH();
+}
+
+  /* Set up paddle2 */
+    paddle2 = new sjs.Image("TOWERS.png");
+    paddle2.type = "paddle";
+    paddle2.setSize(100,30);
+    paddle2.center().bottom();
 
     setInterval(function(){
         console.log(ball.x + " , " + paddle.x);  
@@ -27,11 +45,6 @@ function start() {
             }
         }
     },25);
-
-    var paddle2 = new sjs.Image("TOWERS.png");
-    paddle2.type = "paddle";
-    paddle2.setSize(100,30);
-    paddle2.center().bottom(); 
 
     var score = 0;
     var score_txt = new sjs.Text("Score: 0", 30, "red"); 
@@ -164,24 +177,14 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function myFunction() {
-   
-  var paddle = new sjs.Image("TOWERS.png"); 
-  paddle.type = "paddle";
-  paddle.setSize(100,30);
-  paddle.centerH();
 
- paddle.pushLeft (10);
+ paddle.pushLeft (); 
 
 }
 
 function myFunction2() {
-   
-  var paddle = new sjs.Image("TOWERS.png");   
-  paddle.type = "paddle";
-  paddle.setSize(100,30);
-  paddle.centerH();
 
- paddle.pushRight (10);
+ paddle.pushRight (); 
 
 }
 
