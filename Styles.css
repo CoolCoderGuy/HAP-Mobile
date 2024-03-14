@@ -1,7 +1,4 @@
-/*CSS For Buttons*/
-
-/*Control Buttons Styles*/
-
+/* Control Buttons Styles */
 .controlButton {
     padding: 25px 25px;
     font-size: 40px;
@@ -27,29 +24,24 @@
     color: darkblue;
 }
 
-/*Start Button Styles*/
-
-<style>
-
-.button {
+/* Start Button Styles */
+.startButton {
     padding: 10px 20px;
     font-size: 100px;
     background-color: red;
     color: white;
     border-radius: 5px;
     cursor: pointer;
-box-shadow: 0 15px #666 ; 
+    box-shadow: 0 15px #666; 
 }
 
- .button:hover {
+.startButton:hover {
     background-color: lightgreen; 
 }
 
-.button:active {
-  background-color: limegreen;
-  box-shadow: 0 5px limegreen; 
-  transform: translateY(4px);
-color: darkblue;
+.startButton:active {
+    background-color: limegreen;
+    box-shadow: 0 5px limegreen; 
+    transform: translateY(4px);
+    color: darkblue;
 }
-
-</style>
