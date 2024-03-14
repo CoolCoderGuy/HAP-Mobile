@@ -183,6 +183,18 @@ function myFunction2() {
 
 }
 
+function stopLeft() {
+
+ paddle.pushLeft (0); 
+
+}
+
+function stopRight() {
+
+ paddle.pushRight (0); 
+
+}
+
 function myFunction3() {
    
   var newball = new sjs.Image("MOGUS.png"); 
