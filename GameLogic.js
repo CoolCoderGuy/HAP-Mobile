@@ -1,5 +1,8 @@
 var paddle, paddle2, ball; // Declare paddle, paddle2, and ball variables in the global scope
 
+var moveLeft = false;
+var moveRight = false;
+
 function start() {
     sjs.open();
 
@@ -29,6 +32,16 @@ function start() {
     paddle2.setSize(100,30);
     paddle2.center().bottom();
 
+     /*Button Movement*/
+    setInterval(function() {
+        if (moveLeft) {
+            paddle.pushLeft(1); 
+        }
+        if (moveRight) {
+            paddle.pushRight(1); 
+        }
+    }, 10);     
+    
     setInterval(function(){
         console.log(ball.x + " , " + paddle.x);  
     },0); 
@@ -201,3 +214,21 @@ function myFunction4() {
   ball.friction -= 0.001;
   
 }
+
+/* Left Movement*/
+document.getElementById("leftButton").addEventListener("touchstart", function() {
+    moveLeft = true; 
+});
+
+document.getElementById("leftButton").addEventListener("touchend", function() {
+    moveLeft = false; 
+});
+
+/* Right Movement*/
+document.getElementById("rightButton").addEventListener("touchstart", function() {
+    moveRight = true; 
+});
+
+document.getElementById("rightButton").addEventListener("touchend", function() {
+    moveRight = false; 
+});
