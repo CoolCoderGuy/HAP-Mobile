@@ -89,7 +89,20 @@ function start() {
         if(score == 50){
             paddle2.setSize(150,50); 
         }
+
+if(score == 65){
+            ball.pushUp(-1);
+            ball.pushLeft(-1);   
+        }
+
+if(score == 75){
+            paddle2.setSize(150,50); 
+        }
      
+if(score == 100){
+            paddle.setSize(50,50); 
+        }
+        
         if(score > mobileHighScore) {
             mobileHighScore = score; // Replace high score with current score if current score is higher
             localStorage.setItem('mobileHighScore', mobileHighScore); // Save updated high score to localStorage
