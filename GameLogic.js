@@ -31,7 +31,7 @@ function start() {
 
     setInterval(function(){
         console.log(ball.x + " , " + paddle.x);  
-    },50); 
+    },25); 
 
     setInterval(function(){
         if(ball.y > 100){
@@ -41,7 +41,7 @@ function start() {
                 paddle2.pushLeft(); 
             }
         }
-    },50);
+    },25);
 
     var score = 0;
     var score_txt = new sjs.Text("Score: 0", 30, "red"); 
@@ -157,13 +157,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function myFunction() {
 
- paddle.pushLeft (10); 
+ paddle.pushLeft (7); 
 
 }
 
 function myFunction2() {
 
- paddle.pushRight (10); 
+ paddle.pushRight (7); 
 
 }
 
