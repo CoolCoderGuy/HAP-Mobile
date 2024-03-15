@@ -17,12 +17,6 @@ function start() {
     ball.pushUp(2);
     ball.pushLeft(3);
 
-    /* Set up paddle */
-    paddle = new sjs.Image("TOWERS.png");
-    paddle.type = "paddle";
-    paddle.setSize(100, 30);
-    paddle.centerH();
-
     /* Set up paddle2 */
     paddle2 = new sjs.Image("TOWERS.png");
     paddle2.type = "paddle";
@@ -173,13 +167,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function myFunction() {
 
- paddle.pushLeft (7); 
+ paddle = new sjs.Image("TOWERS.png");
+    paddle.type = "paddle";
+    paddle.setSize(100, 30);
+    paddle.centerH();
+    
+    paddle.pushLeft (7); 
 
 }
 
 function myFunction2() {
 
- paddle.pushRight (7); 
+ paddle = new sjs.Image("TOWERS.png");
+    paddle.type = "paddle";
+    paddle.setSize(100, 30);
+    paddle.centerH();
+    
+    paddle.pushRight (7); 
 
 }
 
