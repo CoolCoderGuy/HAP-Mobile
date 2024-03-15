@@ -201,3 +201,15 @@ function myFunction4() {
   ball.friction -= 0.001;
   
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    var moveLeftBtn = document.getElementById("moveLeftBtn");
+    var moveRightBtn = document.getElementById("moveRightBtn");
+    var mogusBtn = document.getElementById("mogusBtn");
+    var addFrictionBtn = document.getElementById("addFrictionBtn");
+
+    moveLeftBtn.addEventListener("click", myFunction);
+    moveRightBtn.addEventListener("click", myFunction2);
+    mogusBtn.addEventListener("click", myFunction3);
+    addFrictionBtn.addEventListener("click", myFunction4);
+});
