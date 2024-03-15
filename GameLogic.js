@@ -106,31 +106,15 @@ function start() {
         }
         window.location = "gameover.html";
     }); 
-  
-    sjs.keyDown(LEFT_KEY, function(){
-        paddle.pushLeft(1); 
-    }); 
-
-    sjs.keyDown(RIGHT_KEY, function(){    
-        paddle.pushRight(1);
-    }); 
 
     sjs.keyDown(DOWN_KEY, function(){ 
-        ball.friction = -0.001;
-    }); 
-
-    sjs.keyDown(A_KEY, function(){
-        paddle.pushLeft(1);
-    }); 
-
-    sjs.keyDown(D_KEY, function(){  
-        paddle.pushRight(1);
+        ball.friction -= -0.001;
     }); 
 
     sjs.keyDown(W_KEY, function(){ 
         var newball = new sjs.Image("MOGUS.png"); 
         newball.type = "newball";
-        newball.setSize(25,25);  
+        newball.setSize(25,25);   
         newball.center(); 
         newball.friction = 0;
         newball.bounce();
@@ -173,13 +157,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function myFunction() {
 
- paddle.pushLeft (7); 
+ paddle.pushLeft (10); 
 
 }
 
 function myFunction2() {
 
- paddle.pushRight (7); 
+ paddle.pushRight (10); 
 
 }
 
