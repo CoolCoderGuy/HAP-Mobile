@@ -31,7 +31,7 @@ function start() {
 
     setInterval(function(){
         console.log(ball.x + " , " + paddle.x);  
-    },0); 
+    },50); 
 
     setInterval(function(){
         if(ball.y > 100){
@@ -41,7 +41,7 @@ function start() {
                 paddle2.pushLeft(); 
             }
         }
-    },25);
+    },50);
 
     var score = 0;
     var score_txt = new sjs.Text("Score: 0", 30, "red"); 
@@ -50,7 +50,7 @@ function start() {
     var soundEffect = new Audio('BONG.mp3'); 
     sjs.onHit("ball","paddle", function(ball,paddle){   
         score = score + 1; 
-        score_txt.setText("HHits: "+score);     
+        score_txt.setText("HHHits: "+score);     
 
         if(score == 5){
             ball.pushUp(1);
