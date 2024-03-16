@@ -227,6 +227,8 @@ if(score == 100){
 
  // Reset score to 0 every time the game starts
     score = 0;
+
+} 
     
 // Event listener for the volume slider
 var volumeSlider = document.getElementById('volumeSlider');
