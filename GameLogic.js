@@ -164,6 +164,8 @@ if(score == 100){
     // Reset score to 0 every time the game starts
     score = 0;
 }
+            
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     var startButton = document.createElement("button");
