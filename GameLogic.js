@@ -47,17 +47,37 @@ function start() {
     var score_txt = new sjs.Text("Score: 0", 30, "red"); 
     var mobileHighScore = localStorage.getItem('mobileHighScore') || 0; // Initialize high score from localStorage, defaulting to 0 if no high score is stored
 
-    var soundEffect = new Audio('BONG.mp3'); 
     sjs.onHit("ball","paddle", function(ball,paddle){   
         score = score + 1; 
         score_txt.setText("HHHits: "+score);     
 
 // Play a random sound effect
-    var soundEffects = ['BONG.mp3', 'METAL.mp3', 'BONK.mp3', 'TOOT.mp3', 'HUH.mp3', 'PLUH.mp3'];
-    var randomIndex = Math.floor(Math.random() * soundEffects.length);
-    var randomSound = new Audio(soundEffects[randomIndex]);
-    randomSound.play();
-        
+    function playRandomSoundEffect() {
+    var soundWeights = {
+        'BONG.mp3': 3,    // Remember ligher weight, more common
+        'METAL.mp3': 4,
+        'BONK.mp3': 4,    // Remember lower weight, less common
+        'TOOT.mp3': 4,
+        'HUH.mp3': 3,
+        'PLUH.mp3': 3,
+        'MOGUS.mp3': 3,
+        'ECHO.mp3': 0.5,
+        'KNOCKED.mp3': 4,
+    };
+
+    var weightedSoundFiles = [];
+    Object.keys(soundWeights).forEach(function(soundFile) {
+        for (var i = 0; i < soundWeights[soundFile]; i++) {
+            weightedSoundFiles.push(soundFile);
+        }
+    });
+
+    var randomIndex = Math.floor(Math.random() * weightedSoundFiles.length);
+    var randomSoundFile = weightedSoundFiles[randomIndex];
+
+    soundEffects[randomSoundFile].play();
+}
+       
         if(score == 5){
             ball.pushUp(1);
             ball.pushLeft(1);   
@@ -114,7 +134,6 @@ if(score == 100){
             localStorage.setItem('mobileHighScore', mobileHighScore); // Save updated high score to localStorage
         }
 
-        
         sjs.bounceOff(ball,paddle);
     });
 
