@@ -47,6 +47,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    <button class="controlButton" id="mogusBtn">MOGUS</button>
 
    <button class="controlButton" id="addFrictionBtn">Add Friction</button> 
+
+<input type="range" min="0" max="1" step="0.01" value="1" id="volumeSlider">
+
+   <script>
+        // Get the volume slider element
+        var volumeSlider = document.getElementById("volumeSlider");
+
+        // Get the sound effect
+        var soundEffect = new Audio('BONG.mp3'); 
+
+        // Function to handle changes in the volume slider
+        volumeSlider.oninput = function() {
+            // Set the volume of the sound effect
+            soundEffect.volume = volumeSlider.value;
+        };
+
+        // Define other functions and event listeners as needed...
+    </script>
    
    <div id="target" style=" border-radius: 100px; "></div>  
    
