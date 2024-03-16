@@ -1,4 +1,31 @@
+
 var paddle, paddle2, ball; // Declare paddle, paddle2, and ball variables in the global scope
+var audioContext = new (window.AudioContext || window.webkitAudioContext)(); // Initialize AudioContext
+
+// Function to create and play an audio buffer
+function playSound(soundUrl, volume) {
+    var request = new XMLHttpRequest();
+    request.open('GET', soundUrl, true);
+    request.responseType = 'arraybuffer';
+
+    request.onload = function() {
+        audioContext.decodeAudioData(request.response, function(buffer) {
+            var source = audioContext.createBufferSource();
+            var gainNode = audioContext.createGain(); // Create a gain node for controlling volume
+            source.buffer = buffer;
+            source.connect(gainNode); // Connect source to gain node
+            gainNode.connect(audioContext.destination); // Connect gain node to audio context's destination
+            gainNode.gain.value = volume; // Set the volume
+            source.start(0);
+        }, function(err) {
+            console.error('Audio decoding error:', err);
+        });
+    };
+    request.onerror = function() {
+        console.error('XHR error');
+    };
+    request.send();
+}
 
 function start() {
     sjs.open();
@@ -184,7 +211,17 @@ if(score == 100){
         newball.pushRight(5);
         newball.pushUp(7);    
     }); 
-  
+
+// event listener for the volume slider
+    var volumeSlider = document.getElementById('volumeSlider');
+    volumeSlider.addEventListener('input', function() {
+        var volume = parseFloat(this.value);
+        // Adjust the volume of all sound effects
+        // Implement the adjustment logic here based on your existing code structure
+        // For example, if you have an array of sound objects, iterate through them and adjust their volumes
+    });
+}
+
     // Reset score to 0 every time the game starts
     score = 0;
 }
