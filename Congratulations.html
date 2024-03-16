@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PZ3P8KLR');</script>
+<!-- End Google Tag Manager -->  
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SQE2ZE9BM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8SQE2ZE9BM');
+</script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Did It!!!</title>
+    <link rel="icon" type="image/x-icon" href="BUSH.png">
+    <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>  
+    <script>
+    function start(){
+        sjs.open();
+
+        // Background Music
+        var playM = new Audio('AMERICA.mp3'); 
+        var toggle = true;
+        var musicOn = false;
+        sjs.keyDown(B_KEY, function(){  
+            if(toggle == true){
+                if(musicOn == false){
+                    playM.play();
+                    musicOn = true;
+                } else {
+                    playM.pause();
+                    musicOn = false;
+                }
+                toggle = false;
+                setTimeout(function(){  
+                    toggle = true;
+                },1000);
+            } //end if toggle statement
+        }); //end keyDown function
+
+        var background = new sjs.Image("BUSH.png");  
+        background.setSize(sjs.getWidth(), sjs.getHeight());
+        
+        // Display high score
+        var highScore = localStorage.getItem('highScore') || 0;
+        var highScoreTxt = new sjs.Text("Desktop High Score: " + highScore, 28, "lightgreen");
+        highScoreTxt.center().top(50);
+
+        var gameover_text = new sjs.Text("You get an E for effort",20,"red");
+        gameover_text.center().bottom(0.5);
+        var restartBtn = new sjs.Button("Restart", function(){  
+            window.location = "index.html";   
+        });
+        restartBtn.center();           
+    }
+    </script>
+</head>
+<body onload="start()">
+    
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWZQ7JJC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+       
+    <div id="target" style="margin:auto;background:grey;border-radius: 50px;"></div>
+</body>
+</html>
