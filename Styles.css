@@ -45,3 +45,43 @@ button:active {
     transform: translateY(4px);
     color: darkblue;
 }
+
+/* Styling for the volume slider */
+.volumeControl {
+  margin-top: 30px;
+}
+
+.volumeControl label {
+  font-size: 20px;
+  color: black;
+}
+
+.volumeControl input[type="range"] {
+  width: 200px; /* Set the width of the slider */
+  -webkit-appearance: none; /* Remove default styles */
+  appearance: none;
+  height: 10px; /* Set the height of the slider */
+  background: #d3d3d3; /* Background color of the slider track */
+  outline: none;
+  border-radius: 5px; /* Rounded corners */
+  margin-top: 5px;
+}
+
+/* Styling for the slider thumb */
+.volumeControl input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remove default styles */
+  appearance: none;
+  width: 20px; /* Set the width of the thumb */
+  height: 20px; /* Set the height of the thumb */
+  background: #4CAF50; /* Color of the thumb */
+  cursor: pointer;
+  border-radius: 50%; /* Make it a circle */
+}
+
+.volumeControl input[type="range"]::-moz-range-thumb {
+  width: 20px; /* Set the width of the thumb */
+  height: 20px; /* Set the height of the thumb */
+  background: #4CAF50; /* Color of the thumb */
+  cursor: pointer;
+  border-radius: 50%; /* Make it a circle */
+}
