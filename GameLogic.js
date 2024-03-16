@@ -54,12 +54,12 @@ function start() {
 
 /* Volume Changer Setup*/
 function handleVolumeChange() {
-    var volume = document.getElementById('volumeSlider').value;
+    var volume = document.getElementById('volumeControl').value;
     soundEffect.volume = volume;
 }
 
 /* Event Listner For The Slider*/
-document.getElementById('volumeSlider').addEventListener('input', handleVolumeChange);
+document.getElementById('volumeControl').addEventListener('input', handleVolumeChange);
         
         if(score == 5){
             ball.pushUp(1);
