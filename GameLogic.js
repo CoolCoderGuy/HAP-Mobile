@@ -51,8 +51,31 @@ function start() {
         score = score + 1; 
         score_txt.setText("HHHits: "+score);     
 
-// Play a random sound effect
-        playRandomSoundEffect();
+        // Define weighted sound effects
+    var soundWeights = {
+        'BONG.mp3': 3,
+        'METAL.mp3': 4,
+        'BONK.mp3': 4,
+        'TOOT.mp3': 4,
+        'HUH.mp3': 3,
+        'PLUH.mp3': 3,
+        'KNOCKED.mp3': 4,
+        'MOGUS.mp3': 3,
+        'ECHO.mp3': 0.5
+    };
+
+    var weightedSoundFiles = [];
+    Object.keys(soundWeights).forEach(function(soundFile) {
+        for (var i = 0; i < soundWeights[soundFile]; i++) {
+            weightedSoundFiles.push(soundFile);
+        }
+    });
+
+    var randomIndex = Math.floor(Math.random() * weightedSoundFiles.length);
+    var randomSoundFile = weightedSoundFiles[randomIndex];
+
+    var randomSound = new Audio(randomSoundFile);
+    randomSound.play();
         
         if(score == 5){
             ball.pushUp(1);
@@ -212,30 +235,3 @@ document.addEventListener("DOMContentLoaded", function() {
     mogusBtn.addEventListener("click", myFunction3);
     addFrictionBtn.addEventListener("click", myFunction4);
 });
-
-function playRandomSoundEffect() {
-    var soundWeights = {
-        'BONG.mp3': 3,    // Remember ligher weight, more common
-        'METAL.mp3': 4,
-        'BONK.mp3': 4,    // Remember lower weight, less common
-        'TOOT.mp3': 4,
-        'HUH.mp3': 3,
-        'PLUH.mp3': 3,
-        'MOGUS.mp3': 3,
-        'ECHO.mp3': 0.5,
-        'KNOCKED.mp3': 4,
-    };
-
-    var weightedSoundFiles = [];
-    Object.keys(soundWeights).forEach(function(soundFile) {
-        for (var i = 0; i < soundWeights[soundFile]; i++) {
-            weightedSoundFiles.push(soundFile);
-        }
-    });
-
-    var randomIndex = Math.floor(Math.random() * weightedSoundFiles.length);
-    var randomSoundFile = weightedSoundFiles[randomIndex];
-
-    var audio = new Audio(randomSoundFile);
-    audio.play();
-}
