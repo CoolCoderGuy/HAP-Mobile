@@ -65,9 +65,6 @@ function start() {
     sjs.onHit("ball","paddle", function(ball,paddle){   
         score = score + 1; 
         score_txt.setText("HHHits: "+score);     
-
- // Play a random sound effect
-        playRandomSoundEffect();
         
         if(score == 5){
             ball.pushUp(1);
@@ -125,7 +122,8 @@ if(score == 100){
             localStorage.setItem('mobileHighScore', mobileHighScore); // Save updated high score to localStorage
         }
 
-        
+         // Play a random sound effect
+        playRandomSoundEffect();
     });
 
     sjs.onHit("ball",["top_screen","bottom_screen"], function(){ 
