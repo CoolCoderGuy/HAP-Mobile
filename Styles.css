@@ -47,16 +47,16 @@ button:active {
 }
 
 /* Style for the volume slider */
-.volumeControl {
+.volumeSlider {
   margin-top: 20px;
 }
 
-.volumeControl label {
+.volumeSlider label {
   font-size: 20px;
   color: black;
 }
 
-.volumeControl input[type="range"] {
+.volumeSlider input[type="range"] {
   width: 200px; /* Set the width of the slider */
   -webkit-appearance: none; /* Remove default styles */
   appearance: none;
@@ -68,7 +68,7 @@ button:active {
 }
 
 /* Styling for the slider thumb */
-.volumeControl input[type="range"]::-webkit-slider-thumb {
+.volumeSlider input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none; /* Remove default styles */
   appearance: none;
   width: 20px; /* Set the width of the thumb */
@@ -78,7 +78,7 @@ button:active {
   border-radius: 50%; /* Make it a circle */
 }
 
-.volumeControl input[type="range"]::-moz-range-thumb {
+.volumeSlider input[type="range"]::-moz-range-thumb {
   width: 20px; /* Set the width of the thumb */
   height: 20px; /* Set the height of the thumb */
   background: #4CAF50; /* Color of the thumb */
