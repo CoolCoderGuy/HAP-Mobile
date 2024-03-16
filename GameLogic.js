@@ -212,6 +212,9 @@ if(score == 100){
         newball.pushUp(7);    
     }); 
 
+ // Reset score to 0 every time the game starts
+    score = 0;
+    
 // event listener for the volume slider
     var volumeSlider = document.getElementById('volumeSlider');
     volumeSlider.addEventListener('input', function() {
@@ -220,10 +223,6 @@ if(score == 100){
         // Implement the adjustment logic here based on your existing code structure
         // For example, if you have an array of sound objects, iterate through them and adjust their volumes
     });
-}
-
-    // Reset score to 0 every time the game starts
-    score = 0;
 }
 
 //set up for the start button
