@@ -76,7 +76,8 @@ function start() {
 
     var randomSound = new Audio(randomSoundFile);
     randomSound.play();
-        
+
+        // If statements to make the game harder as it progresses
         if(score == 5){
             ball.pushUp(1);
             ball.pushLeft(1);   
@@ -133,6 +134,7 @@ if(score == 100){
             localStorage.setItem('mobileHighScore', mobileHighScore); // Save updated high score to localStorage
         }
 
+        // Extra Collision 
         
         sjs.bounceOff(ball,paddle);
     });
@@ -145,6 +147,7 @@ if(score == 100){
         window.location = "gameover.html";
     }); 
 
+    // The few keyboard controls left in the mobile version
     sjs.keyDown(DOWN_KEY, function(){ 
         ball.friction -= -0.001;
     }); 
@@ -186,7 +189,8 @@ if(score == 100){
     score = 0;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+//set up for the start button
+    document.addEventListener("DOMContentLoaded", function() {
     var startButton = document.createElement("button");
     startButton.textContent = "Start Game";
     startButton.addEventListener("click", start);
