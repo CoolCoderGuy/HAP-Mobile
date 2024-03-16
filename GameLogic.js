@@ -50,34 +50,8 @@ function start() {
     sjs.onHit("ball","paddle", function(ball,paddle){   
         score = score + 1; 
         score_txt.setText("HHHits: "+score);     
-
-// Play a random sound effect
-    function playRandomSoundEffect() {
-    var soundWeights = {
-        'BONG.mp3': 3,    // Remember ligher weight, more common
-        'METAL.mp3': 4,
-        'BONK.mp3': 4,    // Remember lower weight, less common
-        'TOOT.mp3': 4,
-        'HUH.mp3': 3,
-        'PLUH.mp3': 3,
-        'MOGUS.mp3': 3,
-        'ECHO.mp3': 0.5,
-        'KNOCKED.mp3': 4,
-    };
-
-    var weightedSoundFiles = [];
-    Object.keys(soundWeights).forEach(function(soundFile) {
-        for (var i = 0; i < soundWeights[soundFile]; i++) {
-            weightedSoundFiles.push(soundFile);
-        }
-    });
-
-    var randomIndex = Math.floor(Math.random() * weightedSoundFiles.length);
-    var randomSoundFile = weightedSoundFiles[randomIndex];
-
-    soundEffects[randomSoundFile].play();
-}
-       
+       playRandomSoundEffect();
+        
         if(score == 5){
             ball.pushUp(1);
             ball.pushLeft(1);   
@@ -181,7 +155,33 @@ if(score == 100){
         newball.pushRight(5);
         newball.pushUp(7);    
     }); 
-  
+
+function playRandomSoundEffect() {
+    var soundWeights = {
+        'BONG.mp3': 3,    // Remember ligher weight, more common
+        'METAL.mp3': 4,
+        'BONK.mp3': 4,    // Remember lower weight, less common
+        'TOOT.mp3': 4,
+        'HUH.mp3': 3,
+        'PLUH.mp3': 3,
+        'MOGUS.mp3': 3,
+        'ECHO.mp3': 0.5,
+        'KNOCKED.mp3': 4,
+    };
+
+    var weightedSoundFiles = [];
+    Object.keys(soundWeights).forEach(function(soundFile) {
+        for (var i = 0; i < soundWeights[soundFile]; i++) {
+            weightedSoundFiles.push(soundFile);
+        }
+    });
+
+    var randomIndex = Math.floor(Math.random() * weightedSoundFiles.length);
+    var randomSoundFile = weightedSoundFiles[randomIndex];
+
+    soundEffects[randomSoundFile].play();
+}
+    
     // Reset score to 0 every time the game starts
     score = 0;
 }
