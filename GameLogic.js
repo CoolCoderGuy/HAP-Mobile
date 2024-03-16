@@ -59,7 +59,7 @@ function start() {
         score_txt.setText("HHHits: "+score);     
         var randomSound = new Audio(getRandomSoundEffect());
         randomSound.play();
-        
+    }
         if(score == 5){
             ball.pushUp(1);
             ball.pushLeft(1);   
