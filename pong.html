@@ -39,8 +39,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="https://coolcoderguy.github.io/HAP/"target="_blank">Looking For The Desktop Version?</a>  
     </h1>   
    
+   <style>
+/* Style for the volume slider */
+.volumeControl {
+  margin-top: 30px;
+}
+
+.volumeControl label {
+  font-size: 20px;
+  color: black;
+}
+
+.volumeControl input[type="range"] {
+  width: 200px; /* Set the width of the slider */
+  -webkit-appearance: none; /* Remove default styles */
+  appearance: none;
+  height: 10px; /* Set the height of the slider */
+  background: #d3d3d3; /* Background color of the slider track */
+  outline: none;
+  border-radius: 5px; /* Rounded corners */
+  margin-top: 5px;
+}
+
+/* Styling for the slider thumb */
+.volumeControl input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remove default styles */
+  appearance: none;
+  width: 20px; /* Set the width of the thumb */
+  height: 20px; /* Set the height of the thumb */
+  background: #4CAF50; /* Color of the thumb */
+  cursor: pointer;
+  border-radius: 50%; /* Make it a circle */
+}
+
+.volumeControl input[type="range"]::-moz-range-thumb {
+  width: 20px; /* Set the width of the thumb */
+  height: 20px; /* Set the height of the thumb */
+  background: #4CAF50; /* Color of the thumb */
+  cursor: pointer;
+  border-radius: 50%; /* Make it a circle */
+}
+</style>
    
-<button class="controlButton" id="moveLeftBtn">Move Left</button>
+   <button class="controlButton" id="moveLeftBtn">Move Left</button>
 
    <button class="controlButton" id="moveRightBtn">Move Right</button>
 
@@ -48,8 +89,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
    <button class="controlButton" id="addFrictionBtn">Add Friction</button> 
 
-<label for="volumeSlider">Sound Effect Volume:</label>
-<input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
+   <div class="container">
+    <div class="volumeControl">
+        <label for="volumeSlider">Sound Effect Volume:</label>
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+    </div>
+</div>
    
    <div id="target" style=" border-radius: 100px; "></div>  
    
