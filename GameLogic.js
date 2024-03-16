@@ -47,11 +47,19 @@ function start() {
     var score_txt = new sjs.Text("Score: 0", 30, "red"); 
     var mobileHighScore = localStorage.getItem('mobileHighScore') || 0; // Initialize high score from localStorage, defaulting to 0 if no high score is stored
 
-    var soundEffect = new Audio('BONG.mp3'); 
+    var soundEffects = ['BONG.mp3', 'METAL.mp3', 'BONK.mp3', 'TOOT.mp3', 'HUH.mp3', 'PLUH.mp3'] 
+
+    function getRandomSoundEffect() {
+        var randomIndex = Math.floor(Math.random() * soundEffects.length);
+        return soundEffects[randomIndex];
+    }
+    
     sjs.onHit("ball","paddle", function(ball,paddle){   
         score = score + 1; 
         score_txt.setText("HHHits: "+score);     
-
+        var randomSound = new Audio(getRandomSoundEffect());
+        randomSound.play();
+        
         if(score == 5){
             ball.pushUp(1);
             ball.pushLeft(1);   
@@ -107,10 +115,6 @@ if(score == 100){
             mobileHighScore = score; // Replace high score with current score if current score is higher
             localStorage.setItem('mobileHighScore', mobileHighScore); // Save updated high score to localStorage
         }
-
-        soundEffect.play();
-        sjs.bounceOff(ball,paddle);
-    });
 
     sjs.onHit("ball",["top_screen","bottom_screen"], function(){ 
         if(score > mobileHighScore) {
