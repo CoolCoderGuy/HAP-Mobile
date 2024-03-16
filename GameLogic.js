@@ -229,13 +229,12 @@ if(score == 100){
     score = 0;
     
 // Event listener for the volume slider
-    var volumeSlider = document.getElementById('volumeSlider');
-    volumeSlider.addEventListener('input', function() {
-        var volume = parseFloat(this.value);
-        adjustVolume(volume);
-    });
-})();
-
+var volumeSlider = document.getElementById('volumeSlider');
+volumeSlider.addEventListener('input', function() {
+    var volume = parseFloat(this.value);
+    adjustVolume(volume);
+});
+    
 //set up for the start button 
     document.addEventListener("DOMContentLoaded", function() {
     var startButton = document.createElement("button");
