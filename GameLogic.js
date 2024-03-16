@@ -52,15 +52,6 @@ function start() {
         score = score + 1; 
         score_txt.setText("HHHits: "+score);     
 
-/* Volume Changer Setup*/
-function handleVolumeChange() {
-    var volume = document.getElementById('volumeControl').value;
-    soundEffect.volume = volume;
-}
-
-/* Event Listner For The Slider*/
-document.getElementById('volumeControl').addEventListener('input', handleVolumeChange);
-        
         if(score == 5){
             ball.pushUp(1);
             ball.pushLeft(1);   
