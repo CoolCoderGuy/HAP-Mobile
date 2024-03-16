@@ -52,29 +52,14 @@ function start() {
         score = score + 1; 
         score_txt.setText("HHHits: "+score);     
 
-// Get a reference to the volume slider
-var volumeSlider = document.getElementById("volumeSlider");
-
-// Set initial volume to 1 (full volume)
-var volume = 1;
-
-// Add event listener to detect changes in the slider value
-volumeSlider.addEventListener("input", function() {
-    // Update volume variable with the slider value
-    volume = parseFloat(volumeSlider.value);
-});
-
-// Function to play the sound effect with adjusted volume
-function playSoundEffect() {
+/* Volume Changer Setup*/
+function handleVolumeChange() {
+    var volume = document.getElementById('volumeSlider').value;
     soundEffect.volume = volume;
-    soundEffect.play();
 }
 
-// Replace soundEffect.play() with playSoundEffect() in the collision detection function
-sjs.onHit("ball","paddle", function(ball,paddle){   
-    // Other code...
-    playSoundEffect();
-});
+/* Event Listner For The Slider*/
+document.getElementById('volumeSlider').addEventListener('input', handleVolumeChange);
         
         if(score == 5){
             ball.pushUp(1);
