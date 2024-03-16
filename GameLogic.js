@@ -78,32 +78,45 @@ function start() {
         score = score + 1; 
         score_txt.setText("HHHits: "+score);     
 
-        // Define weighted sound effects
-    var soundWeights = {
-        'BONG.mp3': 3,
-        'METAL.mp3': 4,
-        'BONK.mp3': 4,
-        'TOOT.mp3': 4,
-        'HUH.mp3': 3,
-        'PLUH.mp3': 3,
-        'KNOCKED.mp3': 4,
-        'MOGUS.mp3': 3,
-        'ECHO.mp3': 0.5
-    };
+       // Define weighted sound effects
+var soundWeights = {
+    'BONG.mp3': 3,
+    'METAL.mp3': 4,
+    'BONK.mp3': 4,
+    'TOOT.mp3': 4,
+    'HUH.mp3': 3,
+    'PLUH.mp3': 3,
+    'KNOCKED.mp3': 4,
+    'MOGUS.mp3': 3,
+    'ECHO.mp3': 0.5
+};
 
-    var weightedSoundFiles = [];
-    Object.keys(soundWeights).forEach(function(soundFile) {
-        for (var i = 0; i < soundWeights[soundFile]; i++) {
-            weightedSoundFiles.push(soundFile);
-        }
-    });
+var weightedSoundFiles = [];
+Object.keys(soundWeights).forEach(function(soundFile) {
+    for (var i = 0; i < soundWeights[soundFile]; i++) {
+        weightedSoundFiles.push(soundFile);
+    }
+});
 
-    var randomIndex = Math.floor(Math.random() * weightedSoundFiles.length);
-    var randomSoundFile = weightedSoundFiles[randomIndex];
+// Array to store sound effects
+var soundEffects = [];
 
-    var randomSound = new Audio(randomSoundFile);
-    randomSound.play();
+// Load sound effects into the soundEffects array
+weightedSoundFiles.forEach(function(soundFile) {
+    var sound = new Audio(soundFile);
+    var gainNode = audioContext.createGain();
+    sound.gainNode = gainNode; // Store the gain node in the sound object
+    sound.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    soundEffects.push(sound); // Add sound effect to the array
+});
 
+// Function to play a random sound effect
+function playRandomSound() {
+    var randomIndex = Math.floor(Math.random() * soundEffects.length);
+    soundEffects[randomIndex].play();
+}
+        
         // If statements to make the game harder as it progresses
         if(score == 5){
             ball.pushUp(1);
@@ -215,17 +228,15 @@ if(score == 100){
  // Reset score to 0 every time the game starts
     score = 0;
     
-// event listener for the volume slider
+// Event listener for the volume slider
     var volumeSlider = document.getElementById('volumeSlider');
     volumeSlider.addEventListener('input', function() {
         var volume = parseFloat(this.value);
-        // Adjust the volume of all sound effects
-        // Implement the adjustment logic here based on your existing code structure
-        // For example, if you have an array of sound objects, iterate through them and adjust their volumes
+        adjustVolume(volume);
     });
-}
+})();
 
-//set up for the start button
+//set up for the start button 
     document.addEventListener("DOMContentLoaded", function() {
     var startButton = document.createElement("button");
     startButton.textContent = "Start Game";
@@ -258,7 +269,7 @@ newball.pushUp(7);
 
 }
 
-function myFunction4() {
+function myFunction4() { 
 
   ball.friction -= 0.001;
   
