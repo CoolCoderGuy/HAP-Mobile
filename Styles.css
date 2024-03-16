@@ -46,42 +46,19 @@ button:active {
     color: darkblue;
 }
 
-/* Style for the volume slider */
-.volumeSlider {
-  margin-top: 20px;
-}
-
-.volumeSlider label {
-  font-size: 20px;
-  color: black;
-}
-
-.volumeSlider input[type="range"] {
-  width: 200px; /* Set the width of the slider */
-  -webkit-appearance: none; /* Remove default styles */
-  appearance: none;
-  height: 10px; /* Set the height of the slider */
-  background: #d3d3d3; /* Background color of the slider track */
-  outline: none;
-  border-radius: 5px; /* Rounded corners */
-  margin-top: 5px;
-}
-
-/* Styling for the slider thumb */
-.volumeSlider input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Remove default styles */
-  appearance: none;
-  width: 20px; /* Set the width of the thumb */
-  height: 20px; /* Set the height of the thumb */
-  background: #4CAF50; /* Color of the thumb */
-  cursor: pointer;
-  border-radius: 50%; /* Make it a circle */
-}
-
-.volumeSlider input[type="range"]::-moz-range-thumb {
-  width: 20px; /* Set the width of the thumb */
-  height: 20px; /* Set the height of the thumb */
-  background: #4CAF50; /* Color of the thumb */
-  cursor: pointer;
-  border-radius: 50%; /* Make it a circle */
+/* Add the following code to make the slider vertical */
+input[type="range"] {
+    -webkit-appearance: slider-vertical;
+    writing-mode: bt-lr; /* IE */
+    writing-mode: tb-lr;
+    -webkit-writing-mode: vertical-lr;
+    /* Rotate to match slider handle */
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    /* Move slider track */
+    margin-left: -5px;
+    margin-top: 70px;
+    /* Set width and height */
+    width: 200px; /* Set the height as per your design */
+    height: 500px; /* Set the width as per your design */
 }
