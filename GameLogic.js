@@ -133,7 +133,7 @@ if(score == 100){
             mobileHighScore = score; // Replace high score with current score if current score is higher
             localStorage.setItem('mobileHighScore', mobileHighScore); // Save updated high score to localStorage
         }
-        window.location = "gameover.html";
+        
     }); 
 
     sjs.keyDown(DOWN_KEY, function(){ 
