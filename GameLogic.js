@@ -237,8 +237,8 @@ document.addEventListener("DOMContentLoaded", function() {
     var mogusBtn = document.getElementById("mogusBtn");
     var addFrictionBtn = document.getElementById("addFrictionBtn");
 
-    moveLeftBtn.addEventListener("click", myFunction);
-    moveRightBtn.addEventListener("click", myFunction2);
-    mogusBtn.addEventListener("click", myFunction3);
-    addFrictionBtn.addEventListener("click", myFunction4);
+    moveLeftBtn.addEventListener("click", paddleLeft);
+    moveRightBtn.addEventListener("click", paddleRight);
+    mogusBtn.addEventListener("click", MOGUS);
+    addFrictionBtn.addEventListener("click", addFriction);
 });
