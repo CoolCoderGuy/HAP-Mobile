@@ -1,31 +1,6 @@
 
-var paddle, paddle2, ball; // Declare paddle, paddle2, and ball variables in the global scope
-var audioContext = new (window.AudioContext || window.webkitAudioContext)(); // Initialize AudioContext
-
-// Function to create and play an audio buffer
-function playSound(soundUrl, volume) {
-    var request = new XMLHttpRequest();
-    request.open('GET', soundUrl, true);
-    request.responseType = 'arraybuffer';
-
-    request.onload = function() {
-        audioContext.decodeAudioData(request.response, function(buffer) {
-            var source = audioContext.createBufferSource();
-            var gainNode = audioContext.createGain(); // Create a gain node for controlling volume
-            source.buffer = buffer;
-            source.connect(gainNode); // Connect source to gain node
-            gainNode.connect(audioContext.destination); // Connect gain node to audio context's destination
-            gainNode.gain.value = volume; // Set the volume
-            source.start(0);
-        }, function(err) {
-            console.error('Audio decoding error:', err);
-        });
-    };
-    request.onerror = function() { 
-        console.error('XHR error');
-    };
-    request.send();
-}
+ // Declare paddle, paddle2, and ball variables in the global scope
+var paddle, paddle2, ball;
 
 function start() {
     sjs.open();
@@ -78,45 +53,32 @@ function start() {
         score = score + 1; 
         score_txt.setText("HHHits: "+score);     
 
-       // Define weighted sound effects
-var soundWeights = {
-    'BONG.mp3': 3,
-    'METAL.mp3': 4,
-    'BONK.mp3': 4,
-    'TOOT.mp3': 4,
-    'HUH.mp3': 3,
-    'PLUH.mp3': 3,
-    'KNOCKED.mp3': 4,
-    'MOGUS.mp3': 3,
-    'ECHO.mp3': 0.5
-};
+        // Define weighted sound effects
+    var soundWeights = {
+        'BONG.mp3': 3,
+        'METAL.mp3': 4,
+        'BONK.mp3': 4,
+        'TOOT.mp3': 4,
+        'HUH.mp3': 3,
+        'PLUH.mp3': 3,
+        'KNOCKED.mp3': 4,
+        'MOGUS.mp3': 3,
+        'ECHO.mp3': 0.5
+    };
 
-var weightedSoundFiles = [];
-Object.keys(soundWeights).forEach(function(soundFile) {
-    for (var i = 0; i < soundWeights[soundFile]; i++) {
-        weightedSoundFiles.push(soundFile);
-    }
-});
+    var weightedSoundFiles = [];
+    Object.keys(soundWeights).forEach(function(soundFile) {
+        for (var i = 0; i < soundWeights[soundFile]; i++) {
+            weightedSoundFiles.push(soundFile);
+        }
+    });
 
-// Array to store sound effects
-var soundEffects = [];
+    var randomIndex = Math.floor(Math.random() * weightedSoundFiles.length);
+    var randomSoundFile = weightedSoundFiles[randomIndex];
 
-// Load sound effects into the soundEffects array
-weightedSoundFiles.forEach(function(soundFile) {
-    var sound = new Audio(soundFile);
-    var gainNode = audioContext.createGain();
-    sound.gainNode = gainNode; // Store the gain node in the sound object
-    sound.connect(gainNode);
-    gainNode.connect(audioContext.destination);
-    soundEffects.push(sound); // Add sound effect to the array
-});
+    var randomSound = new Audio(randomSoundFile);
+    randomSound.play();
 
-// Function to play a random sound effect
-function playRandomSound() {
-    var randomIndex = Math.floor(Math.random() * soundEffects.length);
-    soundEffects[randomIndex].play();
-}
-        
         // If statements to make the game harder as it progresses
         if(score == 5){
             ball.pushUp(1);
@@ -224,20 +186,12 @@ if(score == 100){
         newball.pushRight(5);
         newball.pushUp(7);    
     }); 
-
- // Reset score to 0 every time the game starts
+  
+    // Reset score to 0 every time the game starts
     score = 0;
+}
 
-} 
-    
-// Event listener for the volume slider
-var volumeSlider = document.getElementById('volumeSlider');
-volumeSlider.addEventListener('input', function() {
-    var volume = parseFloat(this.value);
-    adjustVolume(volume);
-});
-    
-//set up for the start button 
+//set up for the start button
     document.addEventListener("DOMContentLoaded", function() {
     var startButton = document.createElement("button");
     startButton.textContent = "Start Game";
@@ -245,19 +199,19 @@ volumeSlider.addEventListener('input', function() {
     document.getElementById("target").appendChild(startButton);
 });
 
-function myFunction() {
+function paddleLeft() {
 
  paddle.pushLeft (7); 
 
 }
 
-function myFunction2() {
+function paddleRight() {
 
  paddle.pushRight (7); 
 
 }
 
-function myFunction3() {
+function MOGUS() {
    
   var newball = new sjs.Image("MOGUS.png"); 
 newball.type = "newball";
@@ -270,12 +224,13 @@ newball.pushUp(7);
 
 }
 
-function myFunction4() { 
+function addFriction() {
 
   ball.friction -= 0.001;
   
 }
 
+// Event listeners for the on screen buttons
 document.addEventListener("DOMContentLoaded", function() {
     var moveLeftBtn = document.getElementById("moveLeftBtn");
     var moveRightBtn = document.getElementById("moveRightBtn");
