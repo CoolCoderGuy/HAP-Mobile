@@ -59,7 +59,7 @@ function start() {
         score_txt.setText("HHHits: "+score);     
         var randomSound = new Audio(getRandomSoundEffect());
         randomSound.play();
-    });
+        
         if(score == 5){
             ball.pushUp(1);
             ball.pushLeft(1);   
@@ -116,6 +116,8 @@ if(score == 100){
             localStorage.setItem('mobileHighScore', mobileHighScore); // Save updated high score to localStorage
         }
 
+    }); 
+    
     sjs.onHit("ball",["top_screen","bottom_screen"], function(){ 
         if(score > mobileHighScore) {
             mobileHighScore = score; // Replace high score with current score if current score is higher
