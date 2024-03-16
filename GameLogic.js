@@ -70,8 +70,7 @@ function playRandomSoundEffect() {
     var soundFileKeys = Object.keys(soundEffects);
     var randomKey = soundFileKeys[Math.floor(Math.random() * soundFileKeys.length)];
     soundEffects[randomKey].play();
-}
-        
+}         
         if(score == 5){
             ball.pushUp(1);
             ball.pushLeft(1);   
