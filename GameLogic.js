@@ -21,7 +21,7 @@ function playSound(soundUrl, volume) {
             console.error('Audio decoding error:', err);
         });
     };
-    request.onerror = function() {
+    request.onerror = function() { 
         console.error('XHR error');
     };
     request.send();
