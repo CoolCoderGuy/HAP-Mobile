@@ -52,17 +52,6 @@ function start() {
         score = score + 1; 
         score_txt.setText("HHHits: "+score);     
 
-// Function to handle volume change based on slider value
-function handleVolumeChange() {
-    // Get the value of the volume slider
-    var volume = document.getElementById('volumeSlider').value;
-    // Set the volume of the sound effect
-    soundEffect.volume = volume;
-}
-
-// Call the handleVolumeChange function when the input event (slider change) occurs
-document.getElementById('volumeSlider').addEventListener('input', handleVolumeChange);
-        
         if(score == 5){
             ball.pushUp(1);
             ball.pushLeft(1);   
