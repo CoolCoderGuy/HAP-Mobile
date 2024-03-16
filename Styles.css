@@ -46,7 +46,6 @@ button:active {
     color: darkblue;
 }
 
-<style>
 /* Style for the volume slider */
 .volumeControl {
   margin-top: 20px;
@@ -86,4 +85,3 @@ button:active {
   cursor: pointer;
   border-radius: 50%; /* Make it a circle */
 }
-</style>
