@@ -1,20 +1,5 @@
 var paddle, paddle2, ball; // Declare paddle, paddle2, and ball variables in the global scope
 
-var soundEffects = {}; // Object to store preloaded sound effects
-
-function preloadSoundEffects() {
-    var soundFiles = ['BONG.mp3', 'METAL.mp3', 'BONK.mp3', 'TOOT.mp3', 'HUH.mp3', 'PLUH.mp3'];
-
-    // Loop through each sound file and preload it
-    soundFiles.forEach(function(soundFile) {
-        var audio = new Audio(soundFile);
-        soundEffects[soundFile] = audio;
-    });
-}
-
-// Call the preload function before starting the game
-preloadSoundEffects();
-
 function start() {
     sjs.open();
 
@@ -65,12 +50,7 @@ function start() {
     sjs.onHit("ball","paddle", function(ball,paddle){   
         score = score + 1; 
         score_txt.setText("HHHits: "+score);     
-
-function playRandomSoundEffect() {
-    var soundFileKeys = Object.keys(soundEffects);
-    var randomKey = soundFileKeys[Math.floor(Math.random() * soundFileKeys.length)];
-    soundEffects[randomKey].play();
-}         
+      
         if(score == 5){
             ball.pushUp(1);
             ball.pushLeft(1);   
