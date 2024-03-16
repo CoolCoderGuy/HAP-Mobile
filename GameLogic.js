@@ -114,8 +114,6 @@ if(score == 100){
             localStorage.setItem('mobileHighScore', mobileHighScore); // Save updated high score to localStorage
         }
 
-        soundEffect.play();
-        sjs.bounceOff(ball,paddle);
     });
 
     sjs.onHit("ball",["top_screen","bottom_screen"], function(){ 
