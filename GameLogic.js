@@ -154,6 +154,8 @@ window.location = "gameover.html";
 sjs.onHit("ball",["bottom_screen"], function(){ 
 window.location = "Congratulations.html";
     }); 
+
+    });
  
     // The few keyboard controls left in the mobile version
     sjs.keyDown(DOWN_KEY, function(){ 
