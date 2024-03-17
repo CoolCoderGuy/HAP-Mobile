@@ -146,9 +146,15 @@ if(score == 100){
             mobileHighScore = score; // Replace high score with current score if current score is higher
             localStorage.setItem('mobileHighScore', mobileHighScore); // Save updated high score to localStorage
         }
-        window.location = "gameover.html";
+
+sjs.onHit("ball",["top_screen"], function(){ 
+window.location = "gameover.html";
     }); 
 
+sjs.onHit("ball",["bottom_screen"], function(){ 
+window.location = "Congratulations.html";
+    }); 
+ 
     // The few keyboard controls left in the mobile version
     sjs.keyDown(DOWN_KEY, function(){ 
         ball.friction -= -0.001;
