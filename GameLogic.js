@@ -100,7 +100,7 @@ function start() {
         'PLUH.mp3': 3,
         'KNOCKED.mp3': 2,
         'MOGUS.mp3': 2,
-        'ECHO.mp3': 0.5
+        'ECHO.mp3': 0.5,
         'ANDROID.mp3': 2,
         'BIGBONG.mp3': 3,
         'BOING.mp3': 3,
