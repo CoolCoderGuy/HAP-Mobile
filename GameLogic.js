@@ -92,15 +92,27 @@ function start() {
 
         // Define weighted sound effects
     var soundWeights = {
-        'BONG.mp3': 3,
-        'METAL.mp3': 4,
-        'BONK.mp3': 4,
-        'TOOT.mp3': 4,
+        'BONG.mp3': 5,
+        'METAL.mp3': 5,
+        'BONK.mp3': 5,
+        'TOOT.mp3': 3,
         'HUH.mp3': 3,
         'PLUH.mp3': 3,
-        'KNOCKED.mp3': 4,
-        'MOGUS.mp3': 3,
+        'KNOCKED.mp3': 2,
+        'MOGUS.mp3': 2,
         'ECHO.mp3': 0.5
+        'ANDROID.mp3': 2,
+        'BIGBONG.mp3': 3,
+        'BOING.mp3': 3,
+        'BONE.mp3': 5,
+        'BREAK.mp3': 3,
+        'DEFAULT.mp3': 3,
+        'EHMAZING.mp3': 4,
+        'GOOFY.mp3': 3,
+        'HEHEHEHA.mp3': 4,
+        'PIPE.mp3': 5,
+        'RIZZ.mp3': 0.1
+     
     };
 
     var weightedSoundFiles = [];
