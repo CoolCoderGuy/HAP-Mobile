@@ -68,29 +68,32 @@ function start() {
     paddle2.setSize(100,30);
     paddle2.center().bottom();
 
-    function movePaddle2(ball) {
-    // Calculate the target X position for paddle2 to intercept the ball horizontally
-    var targetX = ball.x - (paddle2.width / 5); 
+   // Define a variable to control the smoothness of movement
+var smoothness = 0.5; // Adjust as needed, lower values make smoother movement
+
+function movePaddle2(ball) {
+    // Calculate the target X position for the middle of paddle2 to intercept the ball horizontally
+    var targetX = ball.x - (paddle2.width / 2) + (ball.width / 2); 
     
-    // Define a buffer zone to reduce wobbling when the ball is close
-    var bufferZone = 10; // Adjust as needed
+    // Check if the ball object has a speedX property
+    if (ball.hasOwnProperty('speedX')) {
+        // Calculate the velocity of the ball
+        var ballVelocityX = ball.speedX;
+    } else {
+        // If the speedX property doesn't exist, assume a default velocity
+        var ballVelocityX = 0; // Or any other default value you choose
+    }
     
     // Move paddle2 towards the target X position with a certain speed or acceleration
-    // Apply slower movement when the ball is within the buffer zone
-    var speed = 3; // Adjust as needed
-    if (Math.abs(paddle2.x - targetX) > bufferZone) {
-        if (paddle2.x < targetX) {
-            paddle2.pushRight(0.5);
-        } else if (paddle2.x > targetX) {
-            paddle2.pushLeft(0.5);
-        }
-    }
+    // Adjust paddle's movement based on the velocity of the ball
+    var deltaX = targetX - paddle2.x;
+    // Adjust the paddle's movement based on the smoothness factor and the ball's velocity
+    paddle2.x += deltaX * smoothness + ballVelocityX * smoothness;
 }
-
 
 setInterval(function(){
     movePaddle2(ball);
-}, 25); 
+}, 0);
  
     var score = 0;
     var score_txt = new sjs.Text("Score: 0", 30, "red"); 
@@ -139,7 +142,7 @@ setInterval(function(){
     randomSound.play();
 
         // If statements to make the game harder as it progresses
-        if(score == 5){
+       if(score == 5){
             ball.pushUp(1);
             ball.pushLeft(1);   
         }
@@ -155,7 +158,7 @@ setInterval(function(){
 
         if(score == 25){
             ball.setSize(40,40);   
-        }
+        } 
 
         if(score == 35){
             paddle.setSize(75,30);  
@@ -173,23 +176,24 @@ setInterval(function(){
             ball.setSize(15,15); 
         }
 
-        if(score == 50){
-            paddle2.setSize(150,50); 
+ if(score == 50){
+            ball.pushLeft(-2);
         }
-
-if(score == 65){
+     
+ if(score == 65){
             ball.pushUp(-1);
             ball.pushLeft(-1);   
         }
 
 if(score == 75){
-            paddle2.setSize(150,50); 
+            paddle.setSize(50.10);
         }
      
 if(score == 100){
             paddle.setSize(50,50); 
         }
-        
+    
+     //Saving the highscore
         if(score > mobileHighScore) {
             mobileHighScore = score; // Replace high score with current score if current score is higher
             localStorage.setItem('mobileHighScore', mobileHighScore); // Save updated high score to localStorage
