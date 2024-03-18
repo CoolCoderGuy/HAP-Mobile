@@ -82,6 +82,20 @@ function start() {
         }
     },25);
 
+ setInterval(function(){
+        console.log(ball.y + " , " + paddle.y);  
+    },25); 
+
+    setInterval(function(){
+        if(ball.y > 100){
+            if(ball.y > paddle2.y){
+                paddle2.pushRight();
+            } else {
+                paddle2.pushLeft(); 
+            }
+        }
+    },25);
+ 
     var score = 0;
     var score_txt = new sjs.Text("Score: 0", 30, "red"); 
     var mobileHighScore = localStorage.getItem('mobileHighScore') || 0; // Initialize high score from localStorage, defaulting to 0 if no high score is stored
