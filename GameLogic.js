@@ -2,46 +2,41 @@
  // Declare paddle, paddle2, and ball variables in the global scope
 var paddle, paddle2, ball;
 
-// Define a global variable to hold the audio element
-var backgroundMusic;
+// Define the audio elements for each background music track
+var backgroundMusic1 = new Audio('background_music1.mp3');
+var backgroundMusic2 = new Audio('background_music2.mp3');
 
-// Function to initialize background music
-function initializeBackgroundMusic() {
-    // Create an audio element
-    backgroundMusic = new Audio("AMERICA.mp3");
-    
-    // Set loop to true so that the music repeats
-    backgroundMusic.loop = true;
-    
-    // Set autoplay to true if you want the music to start playing automatically
-    backgroundMusic.autoplay = false; // Set to true if you want autoplay
-    
-    // Append the audio element to the body
-    document.body.appendChild(backgroundMusic);
-}
-
-// Function to toggle background music playback
-function toggleBackgroundMusic() {
-    // If the music is paused, play it; if it's playing, pause it
-    if (backgroundMusic.paused) {
-        backgroundMusic.play();
+// Function to play or pause background music 1
+function toggleBackgroundMusic1() {
+    if (backgroundMusic1.paused) {
+        backgroundMusic1.play();
     } else {
-        backgroundMusic.pause();
+        backgroundMusic1.pause();
     }
 }
 
-// Event listener for key press to toggle background music playback
+// Function to play or pause background music 2
+function toggleBackgroundMusic2() {
+    if (backgroundMusic2.paused) {
+        backgroundMusic2.play();
+    } else {
+        backgroundMusic2.pause();
+    }
+}
+
+// Event listener for key press to toggle background music 1 (assigned to "F" key)
 document.addEventListener("keydown", function(event) {
-    // Check if the pressed key is the spacebar (key code 32)
+    // Check if the pressed key is the "F" key (key code 70)
     if (event.keyCode === 70) {
-        toggleBackgroundMusic();
+        toggleBackgroundMusic1();
     }
 });
 
-// Event listener to ensure the DOM content is loaded before executing JavaScript
-document.addEventListener("DOMContentLoaded", function() {
-    // Initialize the background music
-    initializeBackgroundMusic();
+// Event listener for key press to toggle background music 2 
+document.addEventListener("keydown", function(event) {
+    if (event.keyCode === 32) {
+        toggleBackgroundMusic2();
+    }
 });
 
 function start() {
