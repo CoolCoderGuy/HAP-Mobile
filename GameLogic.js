@@ -3,8 +3,8 @@
 var paddle, paddle2, ball;
 
 // Define the audio elements for each background music track
-var backgroundMusic1 = new Audio('background_music1.mp3');
-var backgroundMusic2 = new Audio('background_music2.mp3');
+var backgroundMusic1 = new Audio('AMERICA.mp3');
+var backgroundMusic2 = new Audio('AMERICA2.mp3');
 
 // Function to play or pause background music 1
 function toggleBackgroundMusic1() {
