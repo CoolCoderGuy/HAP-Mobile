@@ -68,33 +68,29 @@ function start() {
     paddle2.setSize(100,30);
     paddle2.center().bottom();
 
-    setInterval(function(){
-        console.log(ball.x + " , " + paddle.x);  
-    },25); 
-
-    setInterval(function(){
-        if(ball.y > 100){
-            if(ball.x > paddle2.x){
-                paddle2.pushRight();
-            } else {
-                paddle2.pushLeft(); 
-            }
+    function movePaddle2(ball) {
+    // Calculate the target X position for paddle2 to intercept the ball horizontally
+    var targetX = ball.x - (paddle2.width / 5); 
+    
+    // Define a buffer zone to reduce wobbling when the ball is close
+    var bufferZone = 10; // Adjust as needed
+    
+    // Move paddle2 towards the target X position with a certain speed or acceleration
+    // Apply slower movement when the ball is within the buffer zone
+    var speed = 3; // Adjust as needed
+    if (Math.abs(paddle2.x - targetX) > bufferZone) {
+        if (paddle2.x < targetX) {
+            paddle2.pushRight(0.5);
+        } else if (paddle2.x > targetX) {
+            paddle2.pushLeft(0.5);
         }
-    },25);
+    }
+}
 
- setInterval(function(){
-        console.log(ball.y + " , " + paddle.y);  
-    },25); 
 
-    setInterval(function(){
-        if(ball.y > 100){
-            if(ball.y > paddle2.y){
-                paddle2.pushRight();
-            } else {
-                paddle2.pushLeft(); 
-            }
-        }
-    },25);
+setInterval(function(){
+    movePaddle2(ball);
+}, 25); 
  
     var score = 0;
     var score_txt = new sjs.Text("Score: 0", 30, "red"); 
