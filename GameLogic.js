@@ -67,8 +67,16 @@ function start() {
     paddle2.type = "paddle";
     paddle2.setSize(100,30);
     paddle2.center().bottom();
+ 
+    var score = 0;
+    var score_txt = new sjs.Text("Score: 0", 30, "red"); 
+    var mobileHighScore = localStorage.getItem('mobileHighScore') || 0; // Initialize high score from localStorage, defaulting to 0 if no high score is stored
 
-   // Define a variable to control the smoothness of movement
+    sjs.onHit("ball","paddle", function(ball,paddle){   
+        score = score + 1; 
+        score_txt.setText("HHHits: "+score);     
+
+// Define a variable to control the smoothness of movement
 var smoothness = 0.5; // Adjust as needed, lower values make smoother movement
 
 function movePaddle2(ball) {
@@ -94,15 +102,7 @@ function movePaddle2(ball) {
 setInterval(function(){
     movePaddle2(ball);
 }, 0);
- 
-    var score = 0;
-    var score_txt = new sjs.Text("Score: 0", 30, "red"); 
-    var mobileHighScore = localStorage.getItem('mobileHighScore') || 0; // Initialize high score from localStorage, defaulting to 0 if no high score is stored
-
-    sjs.onHit("ball","paddle", function(ball,paddle){   
-        score = score + 1; 
-        score_txt.setText("HHHits: "+score);     
-
+     
         // Define weighted sound effects
     var soundWeights = {
         'BONG.mp3': 5,
