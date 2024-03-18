@@ -98,23 +98,23 @@ function start() {
         'TOOT.mp3': 3,
         'HUH.mp3': 3,
         'PLUH.mp3': 3,
-        'KNOCKED.mp3': 2,
+        'KNOCKED.mp3': 3,
         'MOGUS.mp3': 2,
         'ECHO.mp3': 0.5,
         'ANDROID.mp3': 2,
-        'BIGBONG.mp3': 3,
+        'BIGBONG.mp3': 2,
         'BOING.mp3': 3,
         'BONE.mp3': 5,
         'BREAK.mp3': 3,
-        'DEFAULT.mp3': 3,
+        'DEFAULT.mp3': 2,
         'EHMAZING.mp3': 4,
-        'GOOFY.mp3': 3,
+        'GOOFY.mp3': 4,
         'HEHEHEHA.mp3': 4,
         'PIPE.mp3': 5,
-        'RIZZ.mp3': 0.1
+        'RIZZ.mp3': 0.1 
      
     };
-
+ 
     var weightedSoundFiles = [];
     Object.keys(soundWeights).forEach(function(soundFile) {
         for (var i = 0; i < soundWeights[soundFile]; i++) {
