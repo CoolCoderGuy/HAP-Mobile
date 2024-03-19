@@ -67,11 +67,13 @@ function start() {
     paddle2.type = "paddle";
     paddle2.setSize(100,30);
     paddle2.center().bottom();
- 
+
+ // User score setup
     var score = 0;
     var score_txt = new sjs.Text("Score: 0", 30, "red"); 
     var mobileHighScore = localStorage.getItem('mobileHighScore') || 0; // Initialize high score from localStorage, defaulting to 0 if no high score is stored
 
+ // Initial onhit setup
     sjs.onHit("ball","paddle", function(ball,paddle){   
         score = score + 1; 
         score_txt.setText("HHHits: "+score);     
@@ -79,6 +81,7 @@ function start() {
 // Define a variable to control the smoothness of movement
 var smoothness = 0.5; // Adjust as needed, lower values make smoother movement
 
+     // Setup for the AI paddle movement
 function movePaddle2(ball) {
     // Calculate the target X position for the middle of paddle2 to intercept the ball horizontally
     var targetX = ball.x - (paddle2.width / 2) + (ball.width / 2); 
@@ -92,8 +95,6 @@ function movePaddle2(ball) {
         var ballVelocityX = 0; // Or any other default value you choose
     }
     
-    // Move paddle2 towards the target X position with a certain speed or acceleration
-    // Adjust paddle's movement based on the velocity of the ball
     var deltaX = targetX - paddle2.x;
     // Adjust the paddle's movement based on the smoothness factor and the ball's velocity
     paddle2.x += deltaX * smoothness + ballVelocityX * smoothness;
@@ -135,6 +136,7 @@ setInterval(function(){
         }
     });
 
+     // Randomize sound effects
     var randomIndex = Math.floor(Math.random() * weightedSoundFiles.length);
     var randomSoundFile = weightedSoundFiles[randomIndex];
 
@@ -177,8 +179,9 @@ setInterval(function(){
         }
 
  if(score == 50){
-            ball.pushLeft(-2);
-        }
+            ball.pushLeft(-1);
+            ball.pushUp(-1);
+ }
      
  if(score == 65){
             ball.pushUp(-1);
@@ -186,7 +189,7 @@ setInterval(function(){
         }
 
 if(score == 75){
-            paddle.setSize(50.10);
+            paddle.setSize(75.10);
         }
      
 if(score == 100){
@@ -204,6 +207,7 @@ if(score == 100){
         sjs.bounceOff(ball,paddle);
     });
 
+ // Gameover setup
     sjs.onHit("ball",["top_screen","bottom_screen"], function(){ 
         if(score > mobileHighScore) {
             mobileHighScore = score; // Replace high score with current score if current score is higher
@@ -262,6 +266,7 @@ if(score == 100){
     document.getElementById("target").appendChild(startButton);
 });
 
+ // Functions for the onscreen buttons
 function paddleLeft() {
 
  paddle.pushLeft (7); 
@@ -300,6 +305,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var mogusBtn = document.getElementById("mogusBtn");
     var addFrictionBtn = document.getElementById("addFrictionBtn");
 
+ // Event listners for when the on screen buttons are clicked or pressed
     moveLeftBtn.addEventListener("click", paddleLeft);
     moveRightBtn.addEventListener("click", paddleRight);
     mogusBtn.addEventListener("click", MOGUS);
