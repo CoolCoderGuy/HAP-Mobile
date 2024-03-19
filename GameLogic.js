@@ -42,11 +42,11 @@ document.addEventListener("keydown", function(event) {
 function start() {
     sjs.open();
 
-    /* Set up background image */
+    // Set up background image 
     var background = new sjs.Image("background.png");
     background.setSize(sjs.getWidth(), sjs.getHeight());
 
-    /* Set up ball */
+    // Set up ball 
     ball = new sjs.Image("PLANE.png");   
     ball.type = "ball";
     ball.setSize(55,55);
@@ -56,17 +56,17 @@ function start() {
     ball.pushUp(2);
     ball.pushLeft(3);
 
-    /* Set up paddle */
+    // Set up paddle 
     paddle = new sjs.Image("TOWERS.png");
     paddle.type = "paddle";
     paddle.setSize(100, 30);
     paddle.centerH();
 
-    /* Set up paddle2 */
+    // Set up AI paddle 
     paddle2 = new sjs.Image("TOWERS.png");
     paddle2.type = "paddle";
     paddle2.setSize(100,30);
-    paddle2.center().bottom();
+    paddle2.left().bottom();
 
  // User score setup
     var score = 0;
