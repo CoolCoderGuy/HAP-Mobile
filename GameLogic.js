@@ -125,6 +125,7 @@ setInterval(function(){
         'GOOFY.mp3': 4,
         'HEHEHEHA.mp3': 4,
         'PIPE.mp3': 5,
+        'LINGING.mp3': 3,
         'RIZZ.mp3': 0.1 
      
     };
