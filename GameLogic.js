@@ -125,8 +125,12 @@ setInterval(function(){
         'GOOFY.mp3': 4,
         'HEHEHEHA.mp3': 4,
         'PIPE.mp3': 5,
-        'LINGING.mp3': 2,  
-        'RIZZ.mp3': 0.1 
+        'LINGING.mov': 2,  
+        '2099.mp3': 2,
+        'BWOMP.mp3': 5,
+        'JOE.mp3': 3,
+        'prowler.mp3': 3, 
+        'RIZZ.mp3': 0.1
      
     };
  
