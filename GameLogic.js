@@ -2,43 +2,6 @@
  // Declare paddle, paddle2, and ball variables in the global scope
 var paddle, paddle2, ball;
 
-// Define the audio elements for each background music track
-var backgroundMusic1 = new Audio('AMERICA.mp3');
-var backgroundMusic2 = new Audio('AMERICA2.mp3');
-
-// Function to play or pause background music 1
-function toggleBackgroundMusic1() {
-    if (backgroundMusic1.paused) {
-        backgroundMusic1.play();
-    } else {
-        backgroundMusic1.pause();
-    }
-}
-
-// Function to play or pause background music 2
-function toggleBackgroundMusic2() {
-    if (backgroundMusic2.paused) {
-        backgroundMusic2.play();
-    } else {
-        backgroundMusic2.pause();
-    }
-}
-
-// Event listener for key press to toggle background music 1 (assigned to "F" key)
-document.addEventListener("keydown", function(event) {
-    // Check if the pressed key is the "F" key (key code 70)
-    if (event.keyCode === 70) {
-        toggleBackgroundMusic1();
-    }
-});
-
-// Event listener for key press to toggle background music 2 
-document.addEventListener("keydown", function(event) {
-    if (event.keyCode === 32) {
-        toggleBackgroundMusic2();
-    }
-});
-
 function start() {
     sjs.open();
 
@@ -104,33 +67,34 @@ setInterval(function(){
     movePaddle2(ball);
 }, 0);
      
-        // Define weighted sound effects
+    // Defining weighted sound effects
     var soundWeights = {
-        'BONG.mp3': 5,
-        'METAL.mp3': 5,
-        'BONK.mp3': 5,
-        'TOOT.mp3': 3,
-        'HUH.mp3': 3,
-        'PLUH.mp3': 3,
-        'KNOCKED.mp3': 3,
-        'MOGUS.mp3': 2,
-        'ECHO.mp3': 0.5,
-        'ANDROID.mp3': 2,
-        'BIGBONG.mp3': 2,
-        'BOING.mp3': 3,
-        'BONE.mp3': 5,
-        'BREAK.mp3': 3,
-        'DEFAULT.mp3': 2,
-        'EHMAZING.mp3': 4,
-        'GOOFY.mp3': 4,
-        'HEHEHEHA.mp3': 4,
-        'PIPE.mp3': 5,
-        'LINGING.mov': 2,  
-        '2099.mp3': 2,
-        'BWOMP.mp3': 5,
-        'JOE.mp3': 3,
-        'prowler.mp3': 3, 
-        'RIZZ.mp3': 0.1
+        'Game Sound/BONG.mp3': 5,
+        'Game Sound/METAL.mp3': 5,
+        'Game Sound/BONK.mp3': 5,
+        'Game Sound/TOOT.mp3': 3,
+        'Game Sound/HUH.mp3': 3,
+        'Game Sound/PLUH.mp3': 3,
+        'Game Sound/KNOCKED.mp3': 3,
+        'Game Sound/MOGUS.mp3': 2,
+        'Game Sound/ECHO.mp3': 0.5,
+        'Game Sound/ANDROID.mp3': 3,
+        'Game Sound/BIGBONG.mp3': 2,
+        'Game Sound/BOING.mp3': 3,
+        'Game Sound/BONE.mp3': 4,
+        'Game Sound/BREAK.mp3': 3,
+        'Game Sound/DEFAULT.mp3': 2,
+        'Game Sound/EHMAZING.mp3': 4,
+        'Game Sound/GOOFY.mp3': 4,
+        'Game Sound/HEHEHEHA.mp3': 3,
+        'Game Sound/PIPE.mp3': 5,
+        'Game Sound/LINGING.mov': 2,  
+        'Game Sound/2099.mp3': 2,
+        'Game Sound/BWOMP.mp3': 5,
+        'Game Sound/JOE.mp3': 3,
+        'Game Sound/PROWLER.mp3': 3, 
+        'Game Sound/HAPPY.mp3': 0.1,
+        'Game Sound/RIZZ.mp3': 0.3 
      
     };
  
