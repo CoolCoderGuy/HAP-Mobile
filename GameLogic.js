@@ -67,50 +67,69 @@ setInterval(function(){
     movePaddle2(ball);
 }, 0);
      
-    // Defining weighted sound effects
-    var soundWeights = {
-        'Game Sound/BONG.mp3': 5,
-        'Game Sound/METAL.mp3': 5,
-        'Game Sound/BONK.mp3': 5,
-        'Game Sound/TOOT.mp3': 3,
-        'Game Sound/HUH.mp3': 3,
-        'Game Sound/PLUH.mp3': 3,
-        'Game Sound/KNOCKED.mp3': 3,
-        'Game Sound/MOGUS.mp3': 2,
-        'Game Sound/ECHO.mp3': 0.5,
-        'Game Sound/ANDROID.mp3': 3,
-        'Game Sound/BIGBONG.mp3': 2,
-        'Game Sound/BOING.mp3': 3,
-        'Game Sound/BONE.mp3': 4,
-        'Game Sound/BREAK.mp3': 3,
-        'Game Sound/DEFAULT.mp3': 2,
-        'Game Sound/EHMAZING.mp3': 4,
-        'Game Sound/GOOFY.mp3': 4,
-        'Game Sound/HEHEHEHA.mp3': 3,
-        'Game Sound/PIPE.mp3': 5,
-        'Game Sound/LINGING.mov': 2,  
-        'Game Sound/2099.mp3': 2,
-        'Game Sound/BWOMP.mp3': 5,
-        'Game Sound/JOE.mp3': 3,
-        'Game Sound/PROWLER.mp3': 3, 
-        'Game Sound/HAPPY.mp3': 0.1,
-        'Game Sound/RIZZ.mp3': 0.3 
-     
-    };
- 
-    var weightedSoundFiles = [];
-    Object.keys(soundWeights).forEach(function(soundFile) {
-        for (var i = 0; i < soundWeights[soundFile]; i++) {
-            weightedSoundFiles.push(soundFile);
-        }
-    });
+    // Define weighted sound effects
+var soundWeights = {
+    'Game Sound/BONG.mp3': 5,
+    'Game Sound/METAL.mp3': 5,
+    'Game Sound/BONK.mp3': 5,
+    'Game Sound/TOOT.mp3': 3,
+    'Game Sound/HUH.mp3': 3,
+    'Game Sound/PLUH.mp3': 3,
+    'Game Sound/KNOCKED.mp3': 3,
+    'Game Sound/MOGUS.mp3': 2,
+    'Game Sound/ECHO.mp3': 0.5,
+    'Game Sound/ANDROID.mp3': 3,
+    'Game Sound/BIGBONG.mp3': 2,
+    'Game Sound/BOING.mp3': 3,
+    'Game Sound/BONE.mp3': 4,
+    'Game Sound/BREAK.mp3': 3,
+    'Game Sound/DEFAULT.mp3': 2,
+    'Game Sound/EHMAZING.mp3': 4,
+    'Game Sound/GOOFY.mp3': 4,
+    'Game Sound/HEHEHEHA.mp3': 3,
+    'Game Sound/PIPE.mp3': 5,
+    'Game Sound/LINGING.mov': 2,  
+    'Game Sound/2099.mp3': 2,
+    'Game Sound/BWOMP.mp3': 5,
+    'Game Sound/JOE.mp3': 3,
+    'Game Sound/PROWLER.mp3': 3, 
+    'Game Sound/HAPPY.mp3': 0.1,
+    'Game Sound/RIZZ.mp3': 0.3 
+};
 
-     // Randomize sound effects
+var weightedSoundFiles = [];
+Object.keys(soundWeights).forEach(function(soundFile) {
+    for (var i = 0; i < soundWeights[soundFile]; i++) {
+        weightedSoundFiles.push(soundFile);
+    }
+});
+
+// Sound effects setup
+function playRandomSound() {
     var randomIndex = Math.floor(Math.random() * weightedSoundFiles.length);
     var randomSoundFile = weightedSoundFiles[randomIndex];
-
     var randomSound = new Audio(randomSoundFile);
+    
+    randomSound.volume = document.getElementById('volumeSlider').value;
+    
     randomSound.play();
+}
+
+document.getElementById('volumeSlider').addEventListener('input', function() {
+    if (randomSound) {
+        randomSound.volume = this.value;
+    }
+});
+
+
+playRandomSound();
+
+function handleVolumeChange() {
+    var volume = document.getElementById('volumeSlider').value; 
+    randomSound.volume = volume;
+}
+
+document.getElementById('volumeSlider').addEventListener('input', handleVolumeChange); 
 
         // If statements to make the game harder as it progresses
        if(score == 5){
