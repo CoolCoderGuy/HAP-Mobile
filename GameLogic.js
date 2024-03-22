@@ -1,6 +1,7 @@
 
- // Declare paddle, paddle2, and ball variables in the global scope
-var paddle, paddle2, ball;
+ // Declare paddle, paddle2, ball, and volume slider variables in the global scope
+var paddle, paddle2, ball; 
+var volumeSlider;
 
 function start() {
     sjs.open();
@@ -105,18 +106,22 @@ setInterval(function(){
         }
     });
 
-     // Randomize sound effects
-    var randomIndex = Math.floor(Math.random() * weightedSoundFiles.length);
-    var randomSoundFile = weightedSoundFiles[randomIndex];
+      // Adjust volume based on slider value
+        var volume = volumeSlider.value;
 
-    var randomSound = new Audio(randomSoundFile);
-    randomSound.play();
+        // Randomize sound effects
+        var randomIndex = Math.floor(Math.random() * weightedSoundFiles.length);
+        var randomSoundFile = weightedSoundFiles[randomIndex];
 
+        var randomSound = new Audio (randomSoundFile);
+        randomSound.volume = volume;
+        randomSound.play();
+     
         // If statements to make the game harder as it progresses
        if(score == 5){
             ball.pushUp(1);
             ball.pushLeft(1);   
-        }
+        } 
 
         if(score == 10){
             ball.setSize(50,50);     
