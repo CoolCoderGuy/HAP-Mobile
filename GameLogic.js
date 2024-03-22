@@ -104,33 +104,45 @@ Object.keys(soundWeights).forEach(function(soundFile) {
     }
 });
 
-// Sound effects setup
+// Global variable for the current random sound
+var randomSound;
+
+// Function to play a random sound effect with the current volume setting
 function playRandomSound() {
+    // Choose a random sound effect
     var randomIndex = Math.floor(Math.random() * weightedSoundFiles.length);
     var randomSoundFile = weightedSoundFiles[randomIndex];
-    var randomSound = new Audio(randomSoundFile);
-    
+
+    // Create or update the audio element for the random sound effect
+    if (randomSound) {
+        randomSound.pause(); // Pause the current sound if it's playing
+    }
+    randomSound = new Audio(randomSoundFile);
     randomSound.volume = document.getElementById('volumeSlider').value;
-    
     randomSound.play();
 }
 
+// Set up the event listener for the volume slider to update the volume of the currently playing sound effect
 document.getElementById('volumeSlider').addEventListener('input', function() {
     if (randomSound) {
         randomSound.volume = this.value;
     }
 });
 
-
+// Example usage: call the playRandomSound function whenever you want to play a random sound effect
 playRandomSound();
 
+// Define the handleVolumeChange function to adjust the volume of random sound effects (optional)
 function handleVolumeChange() {
-    var volume = document.getElementById('volumeSlider').value; 
-    randomSound.volume = volume;
+    if (randomSound) {
+        var volume = document.getElementById('volumeSlider').value;
+        randomSound.volume = volume;
+    }
 }
 
+// Set up the event listener for the volume slider (optional)
 document.getElementById('volumeSlider').addEventListener('input', handleVolumeChange); 
-
+     
         // If statements to make the game harder as it progresses
        if(score == 5){
             ball.pushUp(1);
