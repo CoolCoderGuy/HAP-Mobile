@@ -273,7 +273,7 @@ function addFriction() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    volumeSlider = document.getElementById("yourVolumeSliderId");
+    volumeSlider = document.getElementById("volumeSlider");
 
 // Event listeners for the on screen buttons
 document.addEventListener("DOMContentLoaded", function() {
