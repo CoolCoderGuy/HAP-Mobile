@@ -275,14 +275,13 @@ function addFriction() {
 document.addEventListener("DOMContentLoaded", function() {
     volumeSlider = document.getElementById("volumeSlider");
 
-// Event listeners for the on screen buttons
-document.addEventListener("DOMContentLoaded", function() {
+    // Event listeners for the on screen buttons
     var moveLeftBtn = document.getElementById("moveLeftBtn");
     var moveRightBtn = document.getElementById("moveRightBtn");
     var mogusBtn = document.getElementById("mogusBtn");
     var addFrictionBtn = document.getElementById("addFrictionBtn");
 
- // Event listners for when the on screen buttons are clicked or pressed
+    // Event listeners for when the on screen buttons are clicked or pressed
     moveLeftBtn.addEventListener("click", paddleLeft);
     moveRightBtn.addEventListener("click", paddleRight);
     mogusBtn.addEventListener("click", MOGUS);
