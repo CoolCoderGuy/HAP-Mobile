@@ -1,7 +1,6 @@
 
- // Declare paddle, paddle2, ball, and volume slider variables in the global scope
-var paddle, paddle2, ball; 
-var volumeSlider;
+ // Declare paddle, paddle2, and ball variables in the global scope
+var paddle, paddle2, ball;
 
 function start() {
     sjs.open();
@@ -106,22 +105,18 @@ setInterval(function(){
         }
     });
 
-      // Adjust volume based on slider value
-        var volume = volumeSlider.value;
+     // Randomize sound effects
+    var randomIndex = Math.floor(Math.random() * weightedSoundFiles.length);
+    var randomSoundFile = weightedSoundFiles[randomIndex];
 
-        // Randomize sound effects
-        var randomIndex = Math.floor(Math.random() * weightedSoundFiles.length);
-        var randomSoundFile = weightedSoundFiles[randomIndex];
+    var randomSound = new Audio(randomSoundFile);
+    randomSound.play();
 
-        var randomSound = new Audio (randomSoundFile);
-        randomSound.volume = volume;
-        randomSound.play();
-     
         // If statements to make the game harder as it progresses
        if(score == 5){
             ball.pushUp(1);
             ball.pushLeft(1);   
-        } 
+        }
 
         if(score == 10){
             ball.setSize(50,50);     
@@ -272,18 +267,17 @@ function addFriction() {
   
 }
 
+// Event listeners for the on screen buttons
 document.addEventListener("DOMContentLoaded", function() {
-    volumeSlider = document.getElementById("volumeSlider");
-
-    // Event listeners for the on screen buttons
     var moveLeftBtn = document.getElementById("moveLeftBtn");
     var moveRightBtn = document.getElementById("moveRightBtn");
     var mogusBtn = document.getElementById("mogusBtn");
     var addFrictionBtn = document.getElementById("addFrictionBtn");
 
-    // Event listeners for when the on screen buttons are clicked or pressed
+ // Event listners for when the on screen buttons are clicked or pressed
     moveLeftBtn.addEventListener("click", paddleLeft);
     moveRightBtn.addEventListener("click", paddleRight);
     mogusBtn.addEventListener("click", MOGUS);
+ 
     addFrictionBtn.addEventListener("click", addFriction);
 });
