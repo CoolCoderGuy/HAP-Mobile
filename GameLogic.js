@@ -69,7 +69,7 @@ setInterval(function(){
      
     // Defining weighted sound effects
     var soundWeights = {
-        'Game Sound/BONG.mp3': 4,
+        'Game Sound/BONG.mp3': 5,
         'Game Sound/METAL.mp3': 5,
         'Game Sound/BONK.mp3': 5,
         'Game Sound/TOOT.mp3': 3,
@@ -81,7 +81,7 @@ setInterval(function(){
         'Game Sound/ANDROID.mp3': 3,
         'Game Sound/BIGBONG.mp3': 2,
         'Game Sound/BOING.mp3': 3,
-        'Game Sound/BONE.mp3': 2, 
+        'Game Sound/BONE.mp3': 3, 
         'Game Sound/BREAK.mp3': 3,
         'Game Sound/DEFAULT.mp3': 2,
         'Game Sound/EHMAZING.mp3': 4,
@@ -93,9 +93,8 @@ setInterval(function(){
         'Game Sound/BWOMP.mp3': 5,
         'Game Sound/JOE.mp3': 3,
         'Game Sound/PROWLER.mp3': 3, 
-        'Game Sound/HAPPY.mp3': 0.001,
-        'NEIN.mp3' : 4,
-        'Game Sound/RIZZ.mp3': 0.3  
+        'Game Sound/HAPPY.mp3': 0.3,
+        'Game Sound/RIZZ.mp3': 0.3 
      
     };
  
