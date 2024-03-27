@@ -94,6 +94,7 @@ setInterval(function(){
         'Game Sound/JOE.mp3': 3,
         'Game Sound/PROWLER.mp3': 3, 
         'Game Sound/HAPPY.mp3': 0.3,
+         'NEIN.mp3' : 10,
         'Game Sound/RIZZ.mp3': 0.3 
      
     };
