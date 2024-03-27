@@ -93,7 +93,7 @@ setInterval(function(){
         'Game Sound/BWOMP.mp3': 5,
         'Game Sound/JOE.mp3': 3,
         'Game Sound/PROWLER.mp3': 3, 
-        'Game Sound/HAPPY.mp3': 0.001
+        'Game Sound/HAPPY.mp3': 0.001,
         'NEIN.mp3' : 4,
         'Game Sound/RIZZ.mp3': 0.3  
      
