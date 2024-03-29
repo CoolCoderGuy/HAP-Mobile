@@ -1,15 +1,4 @@
 
-
-document.addEventListener('DOMContentLoaded', function() {
-  const buttons = document.querySelectorAll('.disappearing-button');
-  
-  buttons.forEach(button => {
-    button.addEventListener('click', function() {
-      this.style.display = 'none';
-    });
-  });
-});
-
  // Declare paddle, paddle2, and ball variables in the global scope
 var paddle, paddle2, ball;
 
