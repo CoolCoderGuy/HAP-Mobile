@@ -281,3 +281,13 @@ document.addEventListener("DOMContentLoaded", function() {
  
     addFrictionBtn.addEventListener("click", addFriction);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const buttons = document.querySelectorAll('.disappearing-button');
+  
+  buttons.forEach(button => {
+    button.addEventListener('click', function() {
+      this.style.display = 'none';
+    });
+  });
+});
