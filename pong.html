@@ -108,19 +108,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="target">
         
     </div>
+  
 <!-- End scripts -->
+  
    <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
   <script src="GameLogic.js"></script>
 
-  <!-- Event listner for dev tools -->
-  document.addEventListener('DOMContentLoaded', function() {
-  const toggleVideoButton = document.getElementById('toggleVideo');
+<script> document.addEventListener('DOMContentLoaded', function() {
+ 
+ // event listener for dev tools
+ const toggleVideoButton = document.getElementById('toggleVideo');
   const videoFrame = document.getElementById('videoFrame');
   
   toggleVideoButton.addEventListener('click', function() {
     videoFrame.style.display = 'none';
   });
 });
+
+</script>
+ 
   
  </body> 
 
