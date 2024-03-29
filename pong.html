@@ -83,23 +83,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
 
         // Function called when the YouTube player is ready
-        function onPlayerReady(event) {
-            // Event listener for the button click
-            document.getElementById("toggleVideo").addEventListener("click", function() {
-                var videoContainer = document.querySelector(".video-container");
-                // Show or hide the video container based on its current state
-                if (videoContainer.style.display === "none") {
-                    videoContainer.style.display = "block"; // Show the video container
-                    // Automatically start playing the video
-                    player.playVideo();
-                } else {
-                    videoContainer.style.display = "none"; // Hide the video container
-                    // Pause the video
-                    player.pauseVideo();
-                }
-            });
-        }
-    </script>
+            function onPlayerReady(event) {
+                // Event listener for the button click
+                document.getElementById("toggleVideo").addEventListener("click", function() {
+                    var videoContainer = document.querySelector(".video-container");
+                    // Show or hide the video container based on its current state
+                    if (videoContainer.style.display === "none") {
+                        videoContainer.style.display = "block"; // Show the video container
+                        // Automatically start playing the video
+                        player.playVideo();
+                        // Hide the button
+                        document.getElementById("toggleVideo").style.display = "none";
+                    } else {
+                        videoContainer.style.display = "none"; // Hide the video container
+                        // Pause the video
+                        player.pauseVideo();
+                    }
+                });
+            }
+  
+  </script>
    
  </div>
 
@@ -114,20 +117,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
   <script src="GameLogic.js"></script>
 
-<script>
-
- // event listener for dev tools
-document.addEventListener('DOMContentLoaded', function() {
-  const toggleVideoButton = document.getElementById('toggleVideo');
-
-  toggleVideoButton.addEventListener('click', function() {
-    this.style.display = 'none'; // Hides the button 
-  });
-});
-
-</script>
- 
-  
  </body> 
 
 </html>
