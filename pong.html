@@ -53,8 +53,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
     <button class="controlButton" id="addFrictionBtn">Add Friction</button> 
 
- <button id="toggleVideo" > DEV TOOLS (DO NOT PRESS) </button>
+ <button id="toggleVideo" style > DEV TOOLS (DO NOT PRESS) </button>
 
+    <!-- Modify the CSS to initially hide the video element -->
     <style>
         .video-container {
             display: none; /* Initially hide the video */
@@ -65,7 +66,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
     <!-- Add the video element -->
     <div class="video-container">
-       <iframe id="videoFrame" width="300" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=co4DghwpjmL3N0f-&amp;controls=0" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay;  picture-in-picture" allowfullscreen></iframe>
+       <iframe id="videoFrame" width="500" height="250" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=co4DghwpjmL3N0f-&amp;controls=0" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay;  picture-in-picture" allowfullscreen></iframe>
     </div>
 
   <script>
@@ -83,26 +84,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
 
         // Function called when the YouTube player is ready
-            function onPlayerReady(event) {
-                // Event listener for the button click
-                document.getElementById("toggleVideo").addEventListener("click", function() {
-                    var videoContainer = document.querySelector(".video-container");
-                    // Show or hide the video container based on its current state
-                    if (videoContainer.style.display === "none") {
-                        videoContainer.style.display = "block"; // Show the video container
-                        // Automatically start playing the video
-                        player.playVideo();
-                        // Hide the button
-                        document.getElementById("toggleVideo").style.display = "none";
-                    } else {
-                        videoContainer.style.display = "none"; // Hide the video container
-                        // Pause the video
-                        player.pauseVideo();
-                    }
-                });
-            }
-  
-  </script>
+        function onPlayerReady(event) {
+            // Event listener for the button click
+            document.getElementById("toggleVideo").addEventListener("click", function() {
+                var videoContainer = document.querySelector(".video-container");
+                // Show or hide the video container based on its current state
+                if (videoContainer.style.display === "none") {
+                    videoContainer.style.display = "block"; // Show the video container
+                    // Automatically start playing the video
+                    player.playVideo();
+                } else {
+                    videoContainer.style.display = "none"; // Hide the video container
+                    // Pause the video
+                    player.pauseVideo();
+                }
+            });
+        }
+    </script>
    
  </div>
 
@@ -111,13 +109,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="target">
         
     </div>
-  
 <!-- End scripts -->
-  
    <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
   <script src="GameLogic.js"></script>
 
+   
  </body> 
 
 </html>
-
