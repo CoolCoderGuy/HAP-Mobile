@@ -53,9 +53,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
     <button class="controlButton" id="addFrictionBtn">Add Friction</button> 
 
- <button id="toggleVideo" style > DEV TOOLS (DO NOT PRESS) </button>
+ <button id="toggleVideo" > DEV TOOLS (DO NOT PRESS) </button>
 
-    <!-- Modify the CSS to initially hide the video element -->
     <style>
         .video-container {
             display: none; /* Initially hide the video */
@@ -113,7 +112,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
   <script src="GameLogic.js"></script>
 
-   
+  <!-- Event listner for dev tools -->
+  document.addEventListener('DOMContentLoaded', function() {
+  const toggleVideoButton = document.getElementById('toggleVideo');
+  const videoFrame = document.getElementById('videoFrame');
+  
+  toggleVideoButton.addEventListener('click', function() {
+    videoFrame.style.display = 'none';
+  });
+});
+  
  </body> 
 
 </html>
