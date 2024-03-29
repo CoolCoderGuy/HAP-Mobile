@@ -117,13 +117,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 
  // event listener for dev tools
- document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
   const toggleVideoButton = document.getElementById('toggleVideo');
-  const videoFrame = document.getElementById('videoFrame');
 
   toggleVideoButton.addEventListener('click', function() {
-    videoFrame.src += '&amp;controls=0';
-    this.style.display = 'none';
+    this.style.display = 'none'; // Hides the button 
+    const videoFrame = document.getElementById('videoFrame');
+    videoFrame.src += '&amp;controls=0'; 
   });
 });
 
