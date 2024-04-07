@@ -67,37 +67,48 @@ setInterval(function(){
     movePaddle2(ball);
 }, 0);
      
-    // Defining weighted sound effects
-    var soundWeights = {
-        'Game Sound/BONG.mp3': 5,
-        'Game Sound/METAL.mp3': 5,
-        'Game Sound/BONK.mp3': 5,
-        'Game Sound/TOOT.mp3': 3,
-        'Game Sound/HUH.mp3': 3,
-        'Game Sound/PLUH.mp3': 3,
-        'Game Sound/KNOCKED.mp3': 3,
-        'Game Sound/MOGUS.mp3': 2,
-        'Game Sound/ECHO.mp3': 0.5,
-        'Game Sound/ANDROID.mp3': 3,
-        'Game Sound/BIGBONG.mp3': 2,
-        'Game Sound/BOING.mp3': 3,
-        'Game Sound/BONE.mp3': 3, 
-        'Game Sound/BREAK.mp3': 3,
-        'Game Sound/DEFAULT.mp3': 2,
-        'Game Sound/EHMAZING.mp3': 4,
-        'Game Sound/GOOFY.mp3': 4,
-        'Game Sound/HEHEHEHA.mp3': 3,
-        'Game Sound/PIPE.mp3': 5,
-        'Game Sound/LINGING.mov': 2,  
-        'Game Sound/2099.mp3': 2,
-        'Game Sound/BWOMP.mp3': 5,
-        'Game Sound/JOE.mp3': 3,
-        'Game Sound/PROWLER.mp3': 3, 
-        'Game Sound/HAPPY.mp3': 0.3,
-        'Game Sound/RIZZ.mp3': 0.3 
+     // Define weighted sound effects
+var soundWeights = {
+    
+    'Game Sound/BONG.mp3': 4,
+    'Game Sound/METAL.mp3': 5,
+    'Game Sound/BONK.mp3': 5,
+    'Game Sound/TOOT.mp3': 3,
+    'Game Sound/HUH.mp3': 3,
+    'Game Sound/PLUH.mp3': 3,
+    'Game Sound/KNOCKED.mp3': 3,
+    'Game Sound/MOGUS.mp3': 2,
+    'Game Sound/ECHO.mp3': 0.5,
+    'Game Sound/ANDROID.mp3': 3,
+    'Game Sound/BIGBONG.mp3': 2,
+    'Game Sound/BOING.mp3': 3,
+    'Game Sound/BONE.mp3': 4,
+    'Game Sound/BREAK.mp3': 3,
+    'Game Sound/DEFAULT.mp3': 1,
+    'Game Sound/EHMAZING.mp3': 3,
+    'Game Sound/GOOFY.mp3': 4,
+    'Game Sound/HEHEHEHA.mp3': 3,
+    'Game Sound/PIPE.mp3': 4, 
+    'Game Sound/LINGING.mov': 2,  
+    'Game Sound/2099.mp3': 2,
+    'Game Sound/BWOMP.mp3': 5,
+    'Game Sound/JOE.mp3': 3,
+    'Game Sound/PROWLER.mp3': 3, 
+    'Game Sound/HAPPY.mp3': 0.001,
+    'Game Sound/RIZZ.mp3': 0.3,
+    'Game Sound/VICTORY.mov': 0.000000001,  
+    'Game Sound/ITEM.mp3': 0.000000001,
+    'Game Sound/ERROR.mp3': 2,
+    'Game Sound/SHINY.mp3': 0.0000000000000000000000000000000000000000000000001,
+    'Game Sound/DRIP.mp3': 2, 
+    'Game Sound/GDHIGH.mp3': 3,
+    'Game Sound/GDLOW.mp3': 0.3,
+    'Game Sound/CAVE.mp3': 3,
+    'Game Sound/ROLL.mp3': 1,
+    'Game Sound/NEIN.mp3' : 4
+
+};
      
-    };
- 
     var weightedSoundFiles = [];
     Object.keys(soundWeights).forEach(function(soundFile) {
         for (var i = 0; i < soundWeights[soundFile]; i++) {
