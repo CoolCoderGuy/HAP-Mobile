@@ -67,7 +67,7 @@ setInterval(function(){
     movePaddle2(ball);
 }, 0);
      
-     // Define weighted sound effects
+     // weighted sound effects
 var soundWeights = {
     
     'Game Sound/BONG.mp3': 4,
@@ -99,14 +99,18 @@ var soundWeights = {
     'Game Sound/VICTORY.mov': 0.000000001,  
     'Game Sound/ITEM.mp3': 0.000000001,
     'Game Sound/ERROR.mp3': 2,
-    'Game Sound/SHINY.mp3': 0.0000000000000000000000000000000000000000000000001,
+    'Game Sound/SHINY.mp3': 0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001,
     'Game Sound/DRIP.mp3': 2, 
-    'Game Sound/GDHIGH.mp3': 3,
+    'Game Sound/GDHIGH.mp3': 3, 
     'Game Sound/GDLOW.mp3': 0.3,
     'Game Sound/CAVE.mp3': 3,
     'Game Sound/ROLL.mp3': 1,
-    'Game Sound/NEIN.mp3' : 4
-
+    'Game Sound/FEFIFOFUM.mp3': 3,
+    'Game Sound/DARKSUNSHINE.mp3': 1,
+    'Game Sound/WHATSUP.mp3': 4,
+    'Game Sound/EWTS.mp3': 3,
+    'Game Sound/NEIN.mp3' : 2
+ 
 };
      
     var weightedSoundFiles = [];
