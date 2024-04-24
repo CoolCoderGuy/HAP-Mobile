@@ -26,7 +26,7 @@ function start() {
     paddle.centerH();
 
     // Set up AI paddle 
-    paddle2 = new sjs.Image("TOWERS.png");
+    paddle2 = new sjs.Image("TOWERS.jpg");
     paddle2.type = "paddle";
     paddle2.setSize(100,30);
     paddle2.left().bottom();
