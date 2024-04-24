@@ -6,7 +6,7 @@ function start() {
     sjs.open();
 
     // Set up background image 
-    var background = new sjs.Image("background.png");
+    var background = new sjs.Image("background.jpg");
     background.setSize(sjs.getWidth(), sjs.getHeight());
 
     // Set up ball 
@@ -20,7 +20,7 @@ function start() {
     ball.pushLeft(3);
 
     // Set up paddle 
-    paddle = new sjs.Image("TOWERS.png");
+    paddle = new sjs.Image("TOWERS.jpg");
     paddle.type = "paddle";
     paddle.setSize(100, 30);
     paddle.centerH();
