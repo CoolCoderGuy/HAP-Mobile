@@ -6,7 +6,7 @@ function start() {
     sjs.open();
 
     // Set up background image 
-    var background = new sjs.Image("Game Images/backgroundmedium.jpg");
+    var background = new sjs.Image("Game Images/background(mediumdetail).jpg");
     background.setSize(sjs.getWidth(), sjs.getHeight());
 
     // Set up ball 
@@ -20,13 +20,13 @@ function start() {
     ball.pushLeft(3);
 
     // Set up paddle 
-    paddle = new sjs.Image("Game Images/TOWERS.jpg");
+    paddle = new sjs.Image("Game Images/TOWERS(lowdetail).jpg");
     paddle.type = "paddle";
     paddle.setSize(100, 30);
     paddle.centerH();
 
     // Set up AI paddle 
-    paddle2 = new sjs.Image("Game Images/TOWERS.jpg");
+    paddle2 = new sjs.Image("Game Images/TOWERS(lowdetail).jpg");
     paddle2.type = "paddle";
     paddle2.setSize(100,30);
     paddle2.left().bottom();
