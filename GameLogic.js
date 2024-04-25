@@ -6,11 +6,11 @@ function start() {
     sjs.open();
 
     // Set up background image 
-    var background = new sjs.Image("background.jpg");
+    var background = new sjs.Image("Game Images/backgroundmedium.jpg");
     background.setSize(sjs.getWidth(), sjs.getHeight());
 
     // Set up ball 
-    ball = new sjs.Image("PLANE.png");   
+    ball = new sjs.Image("Game Images/PLANE.png");   
     ball.type = "ball";
     ball.setSize(55,55);
     ball.center();
@@ -20,13 +20,13 @@ function start() {
     ball.pushLeft(3);
 
     // Set up paddle 
-    paddle = new sjs.Image("TOWERS.jpg");
+    paddle = new sjs.Image("Game Images/TOWERS.jpg");
     paddle.type = "paddle";
     paddle.setSize(100, 30);
     paddle.centerH();
 
     // Set up AI paddle 
-    paddle2 = new sjs.Image("TOWERS.jpg");
+    paddle2 = new sjs.Image("Game Images/TOWERS.jpg");
     paddle2.type = "paddle";
     paddle2.setSize(100,30);
     paddle2.left().bottom();
@@ -202,11 +202,11 @@ if(score == 100){
 
     // The few keyboard controls left in the mobile version
     sjs.keyDown(DOWN_KEY, function(){ 
-        ball.friction -= -0.001;
+        ball.friction -= -0.0001;
     }); 
 
     sjs.keyDown(W_KEY, function(){ 
-        var newball = new sjs.Image("MOGUS.png"); 
+        var newball = new sjs.Image("Game Images/MOGUS.jpg"); 
         newball.type = "newball";
         newball.setSize(25,25);   
         newball.center(); 
