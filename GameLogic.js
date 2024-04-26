@@ -265,7 +265,7 @@ function paddleRight() {
 
 function MOGUS() {
    
-  var newball = new sjs.Image("MOGUS.png"); 
+  var newball = new sjs.Image("Game Images/MOGUS.png"); 
 newball.type = "newball";
 newball.setSize(25,25);  
 newball.center(); 
