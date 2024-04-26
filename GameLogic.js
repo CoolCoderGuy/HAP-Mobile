@@ -206,7 +206,7 @@ if(score == 100){
     }); 
 
     sjs.keyDown(W_KEY, function(){ 
-        var newball = new sjs.Image("Game Images/MOGUS.jpg"); 
+        var newball = new sjs.Image("Game Images/MOGUS.png"); 
         newball.type = "newball";
         newball.setSize(25,25);   
         newball.center(); 
