@@ -20,13 +20,13 @@ function start() {
     ball.pushLeft(3);
 
     // Set up paddle 
-    paddle = new sjs.Image("Game Images/TOWERS(low detail).jpg");
+    paddle = new sjs.Image("Game Images/TOWERSlowdetail.jpg");
     paddle.type = "paddle";
     paddle.setSize(100, 30);
     paddle.centerH();
 
     // Set up AI paddle 
-    paddle2 = new sjs.Image("Game Images/TOWERS(low detail).jpg");
+    paddle2 = new sjs.Image("Game Images/TOWERSlowdetail.jpg");
     paddle2.type = "paddle";
     paddle2.setSize(100,30);
     paddle2.left().bottom();
@@ -206,7 +206,7 @@ if(score == 100){
     }); 
 
     sjs.keyDown(W_KEY, function(){ 
-        var newball = new sjs.Image("Game Images/MOGUS.png"); 
+        var newball = new sjs.Image("Game Images/MOGUS.jpg"); 
         newball.type = "newball";
         newball.setSize(25,25);   
         newball.center(); 
