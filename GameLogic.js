@@ -199,44 +199,6 @@ if(score == 100){
         }
         window.location = "gameover.html";
     }); 
-
-    // The few keyboard controls left in the mobile version
-    sjs.keyDown(DOWN_KEY, function(){ 
-        ball.friction -= -0.0001;
-    }); 
-
-    sjs.keyDown(W_KEY, function(){ 
-        var newball = new sjs.Image("Game Images/MOGUS.jpg"); 
-        newball.type = "newball";
-        newball.setSize(25,25);   
-        newball.center(); 
-        newball.friction = 0;
-        newball.bounce();
-        newball.pushRight(5);
-        newball.pushUp(7);    
-    }); 
-
-    sjs.keyDown(C_KEY, function(){ 
-        var newball = new sjs.Image("CHARLIE.png"); 
-        newball.type = "newball";
-        newball.setSize(75,75);   
-        newball.center(); 
-        newball.friction = 0;
-        newball.bounce();
-        newball.pushRight(5);
-        newball.pushUp(7);    
-    }); 
-
-    sjs.keyDown(V_KEY, function(){ 
-        var newball = new sjs.Image("VERBALASE.png"); 
-        newball.type = "newball";
-        newball.setSize(75,75);   
-        newball.center(); 
-        newball.friction = 0;
-        newball.bounce();
-        newball.pushRight(5);
-        newball.pushUp(7);    
-    }); 
   
     // Reset score to 0 every time the game starts
     score = 0;
@@ -278,7 +240,7 @@ newball.pushUp(7);
 
 function addFriction() {
 
-  ball.friction -= 0.001;
+  ball.friction -= 0.0001;
   
 }
 
