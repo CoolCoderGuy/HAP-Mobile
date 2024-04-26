@@ -20,13 +20,13 @@ function start() {
     ball.pushLeft(3);
 
     // Set up paddle 
-    paddle = new sjs.Image("Game Images/TOWERS(lowdetail).jpg");
+    paddle = new sjs.Image("Game Images/TOWERS(low detail).jpg");
     paddle.type = "paddle";
     paddle.setSize(100, 30);
     paddle.centerH();
 
     // Set up AI paddle 
-    paddle2 = new sjs.Image("Game Images/TOWERS(lowdetail).jpg");
+    paddle2 = new sjs.Image("Game Images/TOWERS(low detail).jpg");
     paddle2.type = "paddle";
     paddle2.setSize(100,30);
     paddle2.left().bottom();
