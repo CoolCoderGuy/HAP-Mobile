@@ -1,5 +1,5 @@
 
- // Declare paddle, paddle2, and ball variables in the global scope
+ // Declaring main variables in a overall scope 
 var paddle, paddle2, ball;
 
 function start() {
